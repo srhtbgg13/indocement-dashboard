@@ -2,14 +2,13 @@
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── CSS VARIABLES ── */
 :root {
   --sidebar-w: 260px;
   --header-h: 68px;
   --toggle-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --bg: #F0F4FA;
   --surface: #FFFFFF;
-  --sidebar-bg: #1C3FAA;   
+  --sidebar-bg: #1C3FAA;
   --accent: #C0392B;
   --accent2: #2563EB;
   --accent3: #1A3A5C;
@@ -34,7 +33,7 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
- /* DESIGN UNTUK SIDEBAR */
+
 .sidebar {
   width: var(--sidebar-w);
   background: var(--sidebar-bg);
@@ -117,7 +116,6 @@ body {
 
 .nav-icon { width: 16px; height: 16px; opacity: 0.75; flex-shrink: 0; }
 
-/* Stagger animation for nav items */
 .sidebar-nav .nav-item:nth-child(1) { transition-delay: 0.04s; }
 .sidebar-nav .nav-item:nth-child(2) { transition-delay: 0.08s; }
 .sidebar-nav .nav-item:nth-child(3) { transition-delay: 0.12s; }
@@ -139,7 +137,6 @@ body.sidebar-hidden .nav-item {
 body.sidebar-hidden .sidebar-brand-text { opacity: 0; transform: translateX(-10px); }
 body.sidebar-hidden .nav-section-label { opacity: 0; }
 
-/* ── System Status Footer ── */
 .sidebar-system-status {
   padding: 12px 14px 16px;
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -180,7 +177,6 @@ body.sidebar-hidden .main {
   width: 100%;
 }
 
-/* UNTUK HEADER PAGE DASHBOARD */
 .main {
   margin-left: var(--sidebar-w);
   width: calc(100% - var(--sidebar-w));
@@ -226,7 +222,6 @@ body.sidebar-hidden .main {
 }
 .sidebar-toggle-btn:active { transform: scale(0.95); }
 
-/* Active state when sidebar is hidden */
 body.sidebar-hidden .sidebar-toggle-btn {
   background: var(--accent2);
   border-color: var(--accent2);
@@ -266,7 +261,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   transform: translate(-50%, -50%) scale(1); opacity: 0;
 }
 
-/* Tooltip */
 .sidebar-toggle-btn::after {
   content: attr(data-tooltip);
   position: absolute; top: calc(100% + 10px); left: 50%;
@@ -286,7 +280,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .sidebar-toggle-btn:hover::after,
 .sidebar-toggle-btn:hover::before { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-/* Header Brand */
 .header-brand {
   display: flex; align-items: center; gap: 14px; flex: 0 0 auto;
 }
@@ -318,12 +311,10 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   vertical-align: middle;
 }
 
-/* Header Right */
 .header-right {
   display: flex; align-items: center; gap: 10px; margin-left: auto;
 }
 
-/* Icon Button */
 .header-icon-btn {
   position: relative;
   width: 38px; height: 38px; border-radius: 9px;
@@ -351,7 +342,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   100% { transform: scale(1); }
 }
 
-/* User Block */
 .header-user {
   display: flex; align-items: center; gap: 10px;
   padding: 5px 12px 5px 6px;
@@ -372,7 +362,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .user-name { font-size: 12.5px; font-weight: 700; color: var(--text-primary); }
 .user-role { font-size: 10.5px; color: var(--text-muted); }
 
-/* UNTUK BODY DASHBOARD */
 .page-body {
   display: none;
   padding: 26px 32px 40px;
@@ -380,7 +369,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 }
 .page-body.active-page { display: flex; }
 
-/* Page header row */
 .page-header-row {
   display: flex; align-items: center; justify-content: space-between;
 }
@@ -397,7 +385,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   padding: 6px 14px; border-radius: 20px;
 }
 
-/* UNTUK FILTER BAR */
 .filter-bar {
   background: var(--surface);
   border-radius: var(--radius);
@@ -437,7 +424,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   width: 1px; height: 24px; background: var(--border); flex-shrink: 0;
 }
 
-/* Quarter pill buttons */
 .quarter-btns {
   display: flex; align-items: center; gap: 4px;
   background: #F3F4F6; border-radius: 8px; padding: 3px;
@@ -461,7 +447,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 }
 .filter-showing strong { color: var(--accent2); font-weight: 700; }
 
-/* KARTU KPI */
 .kpi-grid { display: grid; gap: 18px; }
 .kpi-3    { grid-template-columns: repeat(3, 1fr); }
 .kpi-2    { grid-template-columns: repeat(2, 1fr); }
@@ -491,7 +476,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   box-shadow: 0 8px 32px rgba(37,99,235,0.12), 0 2px 8px rgba(0,0,0,0.07);
 }
 .kpi-card:hover::before { opacity: 1; }
-
 
 .kpi-grid.kpi-3 .kpi-card::before { display: block; }
 .kpi-sparkcard::before { display: none !important; }
@@ -532,7 +516,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .kpi-badge.down { background: #FEE2E2; color: var(--down); }
 .kpi-period { font-size: 11px; color: var(--text-muted); font-weight: 500; }
 
-/* CHART CARDS */
 .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 
 .chart-card {
@@ -577,7 +560,7 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   margin-top: calc(-1 * var(--mb-title-h));
   border: none; display: block;
 }
-/* Chart.js (mengganti iframe Metabase untuk Operating Cash Flow Trend) */
+
 .chart-body canvas {
   width: 100% !important;
   height: 340px !important;
@@ -589,7 +572,7 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   overflow: hidden;
   padding: 0;
 }
-/* Untuk Sembunyiin box filter dari metabse Di CHART PAGE I */
+
 .chart-body-fill iframe {
   width: 100%;
   height: calc(100% + 140px);
@@ -597,13 +580,12 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   border: none;
   display: block;
 }
-/* sembunyiin title */
+
 .chart-body-fill.has-2-filters iframe {
   height: calc(100% + 175px);
   margin-top: -175px;
 }
 
-/* iframe loading placeholder ── */
 .iframe-loading-placeholder {
   position: absolute;
   inset: 0;
@@ -627,14 +609,13 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   margin-top: -4px;
 }
 .chart-body-fill {
-  position: relative; 
+  position: relative;
 }
 .chart-body-fill iframe {
   position: relative;
   z-index: 3;
 }
 
-/* senmbunyiin filter bar (page ii yg table) */
 .pcq-table-frame iframe {
   width: 100%;
   height: calc(100% + 115px + 56px);
@@ -646,8 +627,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   transition: opacity 0.3s;
 }
 
-/* sembunyikan filter bar chart (page ii yg chart) — sisa aturan iframe lama,
-   dibiarkan untuk kompatibilitas jika suatu saat dipakai lagi */
 .pcq-eqr-frame iframe {
   width: 100%;
   height: calc(100% + 140px + 56px);
@@ -659,7 +638,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   transition: opacity 0.3s;
 }
 
-/* Chart.js — Trend Cash Flow to Earnings Ratio (mengganti iframe Metabase) */
 .pcq-eqr-frame canvas {
   width: 100% !important;
   height: 100% !important;
@@ -669,7 +647,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .legend-dots { display: flex; align-items: center; gap: 6px; }
 .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 
-/* TABLE CARDDDDDDD */
 .table-card {
   background: var(--surface); border-radius: var(--radius);
   box-shadow: var(--shadow); overflow: hidden;
@@ -745,10 +722,7 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .keu-summary-table th:nth-child(4), .keu-summary-table td:nth-child(4) { width: 19%; text-align: right; }
 .keu-summary-table th:nth-child(5), .keu-summary-table td:nth-child(5) { width: 19%; text-align: right; }
 .keu-summary-table th:nth-child(6), .keu-summary-table td:nth-child(6) { width: 19%; text-align: right; }
-/* ops-detail-table punya 8 kolom (Year, Quarter, OCF, CFI, CFF, TCF, Inflow, Outflow) —
-   kolom persen bawaan keu-summary-table (dibuat utk 6 kolom) bikin angka kepotong.
-   Solusinya: lebar kolom pakai px tetap + tabel boleh lebih lebar dari card,
-   scroll horizontal di wrapper-nya (lihat .ops-detail-wrap). */
+
 .ops-detail-table.keu-summary-table { width: 680px; font-size: 12px; }
 .ops-detail-table.keu-summary-table thead,
 .ops-detail-table.keu-summary-table tbody,
@@ -764,8 +738,7 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .ops-detail-table.keu-summary-table th:nth-child(7), .ops-detail-table.keu-summary-table td:nth-child(7),
 .ops-detail-table.keu-summary-table th:nth-child(8), .ops-detail-table.keu-summary-table td:nth-child(8) { width: 90px; text-align: right; }
 .ops-detail-wrap { overflow-x: auto; }
-/* pcq-laba-table punya 4 kolom (Year, Net Income, OCF, EQR) — override lebar
-   bawaan keu-summary-table (dibuat utk 6 kolom) supaya pas 100%. */
+
 .pcq-laba-table.keu-summary-table th:nth-child(1), .pcq-laba-table.keu-summary-table td:nth-child(1) { width: 20%; }
 .pcq-laba-table.keu-summary-table th:nth-child(2), .pcq-laba-table.keu-summary-table td:nth-child(2),
 .pcq-laba-table.keu-summary-table th:nth-child(3), .pcq-laba-table.keu-summary-table td:nth-child(3) { width: 32%; text-align: right; }
@@ -786,10 +759,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   border-top: 1px solid var(--border);
 }
 
-
-/* FCF & SUSTAINABILITY PAGE — */
-
-/* FCF Trend Chart */
 .fcf-chart-wrap {
   padding: 16px 22px 0;
 }
@@ -814,10 +783,8 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   background: repeating-linear-gradient(90deg, #9CA3AF 0, #9CA3AF 4px, transparent 4px, transparent 8px);
 }
 
-/* FCF Bottom Row */
 .fcf-bottom-row { grid-template-columns: 1fr 1fr; }
 
-/* Bar Chart */
 .fcf-bar-wrap {
   padding: 22px 22px 18px; flex: 1; display: flex; align-items: flex-end;
 }
@@ -840,7 +807,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .fcf-bar-pct { font-size: 11.5px; font-weight: 700; }
 .fcf-bar-pct.up { color: var(--up); }
 
-/* Breakdown Table */
 .fcf-breakdown-table {
   padding: 0 22px 20px;
 }
@@ -880,7 +846,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .highlight-row { background: #EFF6FF; border-radius: 8px; }
 .highlight-row:hover { background: #DBEAFE; }
 
-/* COMING SOON PLACEHOLDER */
 .coming-soon {
   flex: 1; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -889,7 +854,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .coming-soon h2 { font-size: 20px; font-weight: 700; color: var(--text-secondary); }
 .coming-soon p  { font-size: 14px; }
 
-/* OVERLAY */
 .sidebar-overlay {
   position: fixed; inset: 0;
   background: rgba(14,30,60,0.25); backdrop-filter: blur(2px);
@@ -898,7 +862,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 }
 body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 
-/* NOTIFICATION PANEL */
 .notif-panel {
   position: fixed;
   width: 340px;
@@ -951,7 +914,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 .notif-content p { font-size: 12.5px; line-height: 1.5; color: var(--text-primary); }
 .notif-content span { font-size: 11px; color: var(--text-muted); margin-top: 2px; display: block; }
 
-/* RESPONSIVE */
 @media (max-width: 1100px) {
   .user-info { display: none; }
   .kpi-3 { grid-template-columns: repeat(2, 1fr); }
@@ -965,8 +927,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   .kpi-3 { grid-template-columns: 1fr; }
   .kpi-2 { grid-template-columns: 1fr; }
 }
-
-/* UTILITY: Taller chart body & table embed */
 
 .chart-body.chart-body-tall {
   min-height: 460px;
@@ -985,7 +945,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   display: block;
 }
 
-/* TOMBOL TAMBAH DATA — Header */
 .btn-tambah-data {
   display: flex; align-items: center; gap: 7px;
   padding: 8px 16px;
@@ -1004,7 +963,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 }
 .btn-tambah-data:active { transform: translateY(0); }
 
-/* MODAL OVERLAY */
 .modal-overlay {
   position: fixed; inset: 0;
   background: rgba(14,30,60,0.35);
@@ -1015,7 +973,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 }
 .modal-overlay.open { opacity: 1; pointer-events: auto; }
 
-/* MODAL */
 .modal {
   position: fixed;
   top: 50%; left: 50%;
@@ -1043,7 +1000,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
 }
 
-/*ADMIN PANEL PAGE */
 .admin-page {
   width: 100%;
   padding: 0;
@@ -1210,7 +1166,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   gap: 16px;
 }
 
-/* Banner zona bahaya */
 .admin-hapus-wrap .del-danger-banner,
 .modal-hapus .del-danger-banner {
   display: flex;
@@ -1252,7 +1207,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   color: #b91c1c;
 }
 
-/* Kartu pilihan hapus */
 .modal-hapus .del-pilihan-card {
   background: #fff;
   border: 1.5px solid #e5e7eb;
@@ -1376,7 +1330,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   color: #475569;
 }
 
-/* Kotak konfirmasi */
 .modal-hapus .del-confirm-box {
   border-radius: 12px;
   padding: 14px 16px;
@@ -1448,7 +1401,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   color: #c2410c;
 }
 
-/* Footer aksi */
 .modal-hapus .del-modal-footer {
   flex-direction: column;
   align-items: stretch;
@@ -1530,7 +1482,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   }
 }
 
-/* Modal Header */
 .modal-header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 20px 24px 16px;
@@ -1554,7 +1505,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 }
 .modal-close:hover { background: #FEE2E2; border-color: #FECACA; color: var(--down); }
 
-/* Modal Tabs */
 .modal-tabs {
   display: flex; gap: 4px; padding: 12px 24px 0;
   border-bottom: 1px solid var(--border); flex-shrink: 0;
@@ -1575,13 +1525,11 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   background: #EFF6FF;
 }
 
-/* Modal Body */
 .modal-body {
   padding: 20px 24px;
   overflow-y: auto; flex: 1;
 }
 
-/* Form Layout */
 .form-section-label {
   font-size: 11px; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.9px; color: var(--text-muted);
@@ -1622,7 +1570,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 }
 .form-group textarea { resize: vertical; min-height: 60px; line-height: 1.5; }
 
-/* Input with prefix/suffix */
 .input-wrap {
   display: flex; align-items: center;
   border: 1.5px solid var(--border); border-radius: 9px;
@@ -1645,7 +1592,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 }
 .input-wrap input:focus { box-shadow: none !important; }
 
-/* Modal Footer */
 .modal-footer {
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 24px; border-top: 1px solid var(--border);
@@ -1685,9 +1631,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   .modal-footer-btns { justify-content: flex-end; }
 }
 
-/* ══════════════════════════════════════════
-   KPI DINAMIS — animasi update
-   ══════════════════════════════════════════ */
 .kpi-loading {
   color: var(--text-muted);
   font-size: 0.85em;
@@ -1709,11 +1652,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   color: var(--down);
 }
 
-/* ══════════════════════════════════════════
-   HOMEPAGE — Full-screen landing
-   ══════════════════════════════════════════ */
-
-/* Hide sidebar/header on homepage */
 .homepage-body-active .sidebar,
 .homepage-body-active .header {
   display: none;
@@ -1725,7 +1663,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   padding-top: 0;
 }
 
-/* Page body override for homepage */
 #page-home.active-page {
   padding: 0;
   margin: 0;
@@ -1733,7 +1670,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   overflow-x: hidden;
 }
 
-/* ── Hero ── */
 .homepage-hero {
   position: relative;
   min-height: 100vh;
@@ -1753,7 +1689,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   z-index: 0;
 }
 
-/* Semi-transparent blue overlay — adjust opacity to show/hide bg photo */
 .homepage-overlay {
   position: absolute;
   inset: 0;
@@ -1766,7 +1701,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   z-index: 1;
 }
 
-/* ── Navbar ── */
 .hp-nav {
   position: relative;
   z-index: 10;
@@ -1837,7 +1771,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   transform: translateY(-1px);
 }
 
-/* ── Hero Content ── */
 .homepage-content {
   position: relative;
   z-index: 10;
@@ -1943,7 +1876,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   transform: translateY(-2px);
 }
 
-/* ── Stats Bar ── */
 .hp-stats-bar {
   position: relative;
   z-index: 10;
@@ -1984,8 +1916,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   font-weight: 500;
 }
 
-/* ── Features Section ── */
-/* ── Purpose / Benefit Section ── */
 .hp-purpose-section {
   background: #f8faff;
   padding: 72px 48px 80px;
@@ -2083,7 +2013,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   line-height: 1.65;
 }
 
-/* ── Footer ── */
 .hp-footer {
   background: #152466;
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -2114,7 +2043,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   color: rgba(255,255,255,0.85);
 }
 
-/* ── Homepage: hide sidebar & header ── */
 body.on-homepage .sidebar,
 body.on-homepage .header {
   display: none !important;
@@ -2131,7 +2059,6 @@ body.on-homepage #page-home.page-body {
   min-height: 100vh;
 }
 
-/* ── Responsive ── */
 @media (max-width: 1024px) {
   .hp-purpose-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -2152,10 +2079,6 @@ body.on-homepage #page-home.page-body {
   .hp-purpose-card { flex-direction: column; }
 }
 
-/* ══════════════════════════════════════════
-   LOGIN MODAL
-   ══════════════════════════════════════════ */
-
 .login-modal-backdrop {
   display: none;
   position: fixed;
@@ -2175,7 +2098,6 @@ body.on-homepage #page-home.page-body {
   from { opacity: 0; } to { opacity: 1; }
 }
 
-/* Modal container — compact */
 .login-modal {
   background: #fff;
   border-radius: 20px;
@@ -2193,7 +2115,6 @@ body.on-homepage #page-home.page-body {
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* STYLE UNTUK HEADER */
 .login-modal-header {
   background: linear-gradient(135deg, #1C3FAA 0%, #2563EB 100%);
   padding: 20px 22px 18px;
@@ -2219,7 +2140,6 @@ body.on-homepage #page-home.page-body {
   font-weight: 400; margin: 0;
 }
 
-/* Role Tabs — slimmer */
 .login-role-tabs {
   display: flex;
   border-bottom: 1px solid var(--border);
@@ -2245,7 +2165,6 @@ body.on-homepage #page-home.page-body {
 .login-role-tab.active { color: var(--accent2); border-bottom-color: var(--accent2); background: #fff; }
 .login-role-tab.active .tab-label-sub { color: var(--accent2); opacity: 0.75; }
 
-/* Panel Publik / Guest */
 .guest-info-box {
   display: flex; flex-direction: column; align-items: center; text-align: center;
   padding: 12px 8px 6px;
@@ -2261,7 +2180,6 @@ body.on-homepage #page-home.page-body {
   font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.5;
 }
 
-/* Body — tighter spacing */
 .login-modal-body {
   padding: 18px 22px 16px;
   display: flex; flex-direction: column; gap: 12px;
@@ -2272,7 +2190,6 @@ body.on-homepage #page-home.page-body {
   color: var(--text-primary); letter-spacing: 0.2px;
 }
 
-/* Inputs — shorter height */
 .login-input-wrap {
   position: relative;
   display: flex; align-items: center;
@@ -2307,7 +2224,6 @@ body.on-homepage #page-home.page-body {
 }
 .login-toggle-pw:hover { color: var(--accent2); }
 
-/* Error */
 .login-error {
   display: flex; align-items: center; gap: 6px;
   background: #FEF2F2; border: 1px solid #FECACA;
@@ -2321,7 +2237,6 @@ body.on-homepage #page-home.page-body {
   40%,80%  { transform: translateX(5px); }
 }
 
-/* Submit button — slightly shorter */
 .login-submit-btn {
   width: 100%;
   padding: 11px;
@@ -2338,7 +2253,6 @@ body.on-homepage #page-home.page-body {
 .login-submit-btn:hover  { opacity: 0.92; transform: translateY(-1px); }
 .login-submit-btn:active { transform: translateY(0); }
 
-/* Footer */
 .login-modal-footer {
   padding: 8px 22px 16px;
   text-align: center;
@@ -2348,11 +2262,6 @@ body.on-homepage #page-home.page-body {
   font-size: 11.5px; color: var(--text-muted);
 }
 
-/* ══════════════════════════════════════════
-   ROLE SYSTEM — Header Additions
-   ══════════════════════════════════════════ */
-
-/* Role badge next to user role text */
 .user-role-wrap {
   display: flex; align-items: center; gap: 5px;
 }
@@ -2371,7 +2280,6 @@ body.role-user .user-role-badge {
   color: #047857;
 }
 
-/* Logout button */
 .logout-btn {
   display: flex; align-items: center; gap: 6px;
   padding: 7px 14px;
@@ -2393,32 +2301,24 @@ body.role-user .user-role-badge {
   color: #DC2626;
 }
 
-/* Hide Tambah Data for user role */
 body.role-user #btnTambahData {
   display: none !important;
 }
 
-/* Hide Notifikasi for user role */
 body.role-user #notifBtn {
   display: none !important;
 }
 
-/* Admin role badge color */
 body.role-admin .user-role-badge {
   background: rgba(37,99,235,0.12);
   color: #1C3FAA;
 }
-/* ══════════════════════════════════════════
-   SIDEBAR — Collapsible Nav Groups
-   ══════════════════════════════════════════ */
 
-/* Group wrapper */
 .nav-group {
   display: flex;
   flex-direction: column;
 }
 
-/* Group trigger button (the parent row) */
 .nav-group-trigger {
   display: flex;
   align-items: center;
@@ -2448,7 +2348,6 @@ body.role-admin .user-role-badge {
   gap: 10px;
 }
 
-/* Colored icon circle for group triggers */
 .nav-group-icon-wrap {
   width: 24px; height: 24px;
   border-radius: 7px;
@@ -2463,13 +2362,11 @@ body.role-admin .user-role-badge {
   background: rgba(255,255,255,0.20);
 }
 
-/* Open state: highlight trigger */
 .nav-group.open > .nav-group-trigger {
   color: rgba(255,255,255,0.95);
   background: rgba(255,255,255,0.06);
 }
 
-/* Chevron rotates when open */
 .nav-group-chevron {
   flex-shrink: 0;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2481,7 +2378,6 @@ body.role-admin .user-role-badge {
   color: rgba(255,255,255,0.75);
 }
 
-/* Children container — collapsed by default */
 .nav-group-children {
   overflow: hidden;
   max-height: 0;
@@ -2496,7 +2392,6 @@ body.role-admin .user-role-badge {
   opacity: 1;
 }
 
-/* Sub-item links inside groups */
 .nav-sub-item {
   display: flex;
   align-items: center;
@@ -2513,7 +2408,6 @@ body.role-admin .user-role-badge {
   position: relative;
 }
 
-/* Left accent line on sub-items */
 .nav-sub-item::before {
   content: '';
   position: absolute;
@@ -2547,7 +2441,6 @@ body.role-admin .user-role-badge {
   height: 65%;
 }
 
-/* ── Nav item icon wrap ── */
 .nav-item {
   display: flex;
   align-items: center;
@@ -2573,7 +2466,6 @@ body.role-admin .user-role-badge {
   font-weight: 600;
 }
 
-/* ── Colored icon variants for nav group icons ── */
 .nav-icon-blue {
   background: rgba(59,130,246,0.22) !important;
   color: #93C5FD;
@@ -2614,7 +2506,6 @@ body.role-admin .user-role-badge {
   background: rgba(167,139,250,0.32) !important;
 }
 
-/* ── Nav Sub-Group (nested inside nav-group-children) ── */
 .nav-sub-group {
   display: flex;
   flex-direction: column;
@@ -2676,7 +2567,6 @@ body.role-admin .user-role-badge {
   color: rgba(255,255,255,0.65);
 }
 
-/* Children of sub-group */
 .nav-sub-group-children {
   overflow: hidden;
   max-height: 0;
@@ -2689,10 +2579,6 @@ body.role-admin .user-role-badge {
   max-height: 200px;
   opacity: 1;
 }
-
-/* ══════════════════════════════════════════
-   LAPORAN KEUANGAN — Empty Page Styles
-   ══════════════════════════════════════════ */
 
 .laporan-empty-page {
   display: flex;
@@ -2744,9 +2630,6 @@ body.role-admin .user-role-badge {
   margin-top: 6px;
 }
 
-/* ══════════════════════════════════════════
-   COMING SOON — placeholder pages
-   ══════════════════════════════════════════ */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -2778,11 +2661,6 @@ body.role-admin .user-role-badge {
   line-height: 1.6;
 }
 
-/* ══════════════════════════════════════════
-   MARGIN TRENDS PAGE — Specific styles
-   ══════════════════════════════════════════ */
-
-/* KPI footer row for margin KPIs */
 .kpi-footer-row {
   display: flex;
   align-items: center;
@@ -2796,18 +2674,15 @@ body.role-admin .user-role-badge {
   color: var(--text-muted);
 }
 
-/* Taller chart body for bottom row charts */
 .chart-body-tall iframe,
 .chart-body-table iframe {
   height: calc(380px + var(--mb-title-h));
 }
 
-/* Bottom row of margin page stretches full width */
 .mg-bottom-row {
   grid-template-columns: 1fr 1fr;
 }
 
-/* Margin chart iframe placeholder while Metabase loads */
 .mg-chart-frame {
   width: 100%;
   height: calc(300px + var(--mb-title-h));
@@ -2816,7 +2691,7 @@ body.role-admin .user-role-badge {
   display: block;
   background: #F9FAFB;
 }
-/* ── Balance Sheet Chart Frames ── */
+
 .bs-chart-frame {
   width: 100%;
   height: calc(300px + var(--mb-title-h));
@@ -2826,18 +2701,13 @@ body.role-admin .user-role-badge {
   background: #F9FAFB;
 }
 
-/* KPI trend badge with icon + text (Balance Sheet style) */
 .kpi-trend-badge {
   display: flex; align-items: center; gap: 3px;
   background: #DCFCE7; color: #16A34A;
   border-radius: 8px; padding: 5px 10px;
   font-size: 11px; font-weight: 600;
 }
-/* ══════════════════════════════════════════
-   KEY FINANCIAL INDICATORS PAGE
-   ══════════════════════════════════════════ */
 
-/* 6-column KPI grid for KFI */
 .kfi-kpi-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -2854,7 +2724,6 @@ body.role-admin .user-role-badge {
   .kfi-kpi-grid { grid-template-columns: 1fr 1fr; }
 }
 
-/* KFI KPI card — compact variant */
 .kfi-kpi-card {
   padding: 16px 14px 14px;
 }
@@ -2869,7 +2738,6 @@ body.role-admin .user-role-badge {
   font-size: 10.5px;
 }
 
-/* Arrow direction + color semantics */
 .kfi-arrow {
   border-radius: 8px;
   width: 28px; height: 28px;
@@ -2892,7 +2760,6 @@ body.role-admin .user-role-badge {
   color: #DC2626;
 }
 
-/* Section divider row */
 .kfi-section-divider {
   display: flex;
   align-items: center;
@@ -2916,18 +2783,15 @@ body.role-admin .user-role-badge {
   background: var(--border);
 }
 
-/* KFI chart row */
 .kfi-charts-row {
   grid-template-columns: 1fr 1fr;
 }
 
-/* KFI chart body — relative for placeholder overlay */
 .kfi-chart-body {
   position: relative;
   min-height: 320px;
 }
 
-/* KFI iframe — hidden behind placeholder until src is set */
 .kfi-chart-frame {
   width: 100%;
   height: calc(300px + var(--mb-title-h));
@@ -2939,7 +2803,6 @@ body.role-admin .user-role-badge {
   z-index: 1;
 }
 
-/* Placeholder shown when iframe src is blank */
 .kfi-embed-placeholder {
   position: absolute;
   inset: 0;
@@ -2982,9 +2845,6 @@ body.role-admin .user-role-badge {
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
-/* ══════════════════════════════════════════
-   INSIGHT NOTES — Floating Action Button
-   ══════════════════════════════════════════ */
 .insight-fab {
   position: fixed;
   bottom: 32px;
@@ -3029,9 +2889,6 @@ body.role-admin .user-role-badge {
   box-shadow: 0 2px 6px rgba(192,57,43,0.35);
 }
 
-/* ══════════════════════════════════════════
-   INSIGHT PANEL — Side Drawer
-   ══════════════════════════════════════════ */
 .insight-panel-backdrop {
   position: fixed;
   inset: 0;
@@ -3065,7 +2922,6 @@ body.role-admin .user-role-badge {
   transform: translateX(0);
 }
 
-/* Panel Header */
 .insight-panel-header {
   display: flex;
   align-items: center;
@@ -3120,7 +2976,6 @@ body.role-admin .user-role-badge {
   border-color: #FECACA;
 }
 
-/* Add Note Form */
 .insight-add-form {
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
@@ -3226,7 +3081,6 @@ body.role-admin .user-role-badge {
 }
 .insight-save-btn:active { transform: scale(0.97); }
 
-/* Notes List */
 .insight-notes-list {
   flex: 1;
   overflow-y: auto;
@@ -3236,7 +3090,6 @@ body.role-admin .user-role-badge {
   gap: 12px;
 }
 
-/* Note Card */
 .insight-note-card {
   border: 1.5px solid var(--border);
   border-radius: 12px;
@@ -3250,7 +3103,6 @@ body.role-admin .user-role-badge {
   transform: translateY(-1px);
 }
 
-/* Category colors */
 .insight-note-card[data-cat="info"]     { border-left: 4px solid #2563EB; }
 .insight-note-card[data-cat="warning"]  { border-left: 4px solid #CA8A04; }
 .insight-note-card[data-cat="positive"] { border-left: 4px solid #16A34A; }
@@ -3324,7 +3176,6 @@ body.role-admin .user-role-badge {
   border-radius: 10px;
 }
 
-/* Empty state */
 .insight-empty-state {
   flex: 1;
   display: flex;
@@ -3356,14 +3207,11 @@ body.role-admin .user-role-badge {
   color: var(--text-secondary);
 }
 
-/* Hide insight fab on homepage */
 body.on-homepage .insight-fab { display: none !important; }
 
-/* Hide for user role */
 body.role-user .insight-fab { display: none !important; }
 body.role-user .insight-panel { display: none !important; }
 
-/* ── Hapus semua border-top pada kartu KFI ── */
 .kfi-kpi-card,
 .kfi-kpi-card.kpi-card {
   border-top: none !important;
@@ -3375,18 +3223,15 @@ body.role-user .insight-panel { display: none !important; }
   box-shadow: 0 8px 24px rgba(37, 99, 235, 0.10);
 }
 
-/* ── Sembunyikan trend icon sudut kanan atas ── */
 .kfi-kpi-card .kfi-arrow {
   display: none !important;
 }
 
-/* ── top-row: icon saja, tanpa item di kanan ── */
 .kfi-kpi-card .kpi-top-row {
   justify-content: flex-start;
   margin-bottom: 12px;
 }
 
-/* ── Icon wrap: biru EFF6FF / 2563EB (sama seperti ROA) ── */
 .kfi-kpi-card .kpi-icon-wrap {
   background: #EFF6FF !important;
   border-radius: 12px;
@@ -3399,7 +3244,6 @@ body.role-user .insight-panel { display: none !important; }
   height: 20px;
 }
 
-/* ── Nilai angka: hitam, override semua color class & inline style ── */
 .kfi-kpi-card .kpi-value,
 .kfi-kpi-card .kpi-value.kpi-val-green,
 .kfi-kpi-card .kpi-value.kpi-val-blue,
@@ -3413,14 +3257,12 @@ body.role-user .insight-panel { display: none !important; }
   letter-spacing: -0.4px;
 }
 
-/* ── Unit abu ── */
 .kfi-kpi-card .kpi-unit {
   color: var(--text-secondary);
   font-size: 14px;
   font-weight: 600;
 }
 
-/* ── Label ── */
 .kfi-kpi-card .kpi-label {
   font-size: 11px;
   font-weight: 600;
@@ -3428,15 +3270,7 @@ body.role-user .insight-panel { display: none !important; }
   color: var(--text-secondary);
   margin-bottom: 4px;
 }
-/* ══════════════════════════════════════════
-   RESOURCE OVERVIEW — KPI Sparkcard Redesign
-   · Semua teks: hitam (--text-primary)
-   · Icon: latar putih + stroke warna aksen
-   · Accent bar tipis di atas card
-   · Badge & period tetap
-   ══════════════════════════════════════════ */
 
-/* ── Reset gradient background sparkcard Resource Overview ── */
 #page-operasional .kpi-sparkcard {
   background: var(--surface) !important;
   border-radius: var(--radius);
@@ -3456,17 +3290,14 @@ body.role-user .insight-panel { display: none !important; }
   box-shadow: 0 8px 28px rgba(0,0,0,0.10);
 }
 
-/* ── Accent bar: dihapus ── */
 #page-operasional .kpi-sparkcard::after { display: none !important; }
 
-/* ── spark-top: icon box ── */
 #page-operasional .kpi-sparkcard .spark-top {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 14px;
 }
 
-/* ── Icon wrap: putih dengan border, stroke warna aksen ── */
 #page-operasional .kpi-sparkcard .kpi-icon-wrap {
   width: 44px !important;
   height: 44px !important;
@@ -3478,14 +3309,12 @@ body.role-user .insight-panel { display: none !important; }
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* Override warna background icon — light tint per kategori */
 #page-operasional .kpi-sparkcard-red    .kpi-icon-wrap { background: #FEE2E2 !important; }
 #page-operasional .kpi-sparkcard-green  .kpi-icon-wrap { background: #DCFCE7 !important; }
 #page-operasional .kpi-sparkcard-blue   .kpi-icon-wrap { background: #EFF6FF !important; }
 #page-operasional .kpi-sparkcard-purple .kpi-icon-wrap { background: #F5F3FF !important; }
 #page-operasional .kpi-sparkcard-yellow .kpi-icon-wrap { background: #FEF9C3 !important; }
 
-/* Stroke icon mengikuti warna aksen */
 #page-operasional .kpi-sparkcard-red    .kpi-icon-wrap svg { stroke: #C0392B !important; }
 #page-operasional .kpi-sparkcard-green  .kpi-icon-wrap svg { stroke: #16A34A !important; }
 #page-operasional .kpi-sparkcard-blue   .kpi-icon-wrap svg { stroke: #2563EB !important; }
@@ -3497,7 +3326,6 @@ body.role-user .insight-panel { display: none !important; }
   height: 20px !important;
 }
 
-/* ── Label: hitam ── */
 #page-operasional .kpi-sparkcard .kpi-label {
   font-size: 11px !important;
   font-weight: 600 !important;
@@ -3508,7 +3336,6 @@ body.role-user .insight-panel { display: none !important; }
   margin-bottom: 6px !important;
 }
 
-/* ── Nilai angka: hitam, semua override color class ── */
 #page-operasional .kpi-sparkcard .kpi-value,
 #page-operasional .kpi-sparkcard .kpi-val-red,
 #page-operasional .kpi-sparkcard .kpi-val-green,
@@ -3523,14 +3350,12 @@ body.role-user .insight-panel { display: none !important; }
   margin-bottom: 10px !important;
 }
 
-/* ── Unit: abu-abu ── */
 #page-operasional .kpi-sparkcard .kpi-unit {
   color: var(--text-secondary) !important;
   font-size: 15px !important;
   font-weight: 600 !important;
 }
 
-/* ── Footer: badge + period ── */
 #page-operasional .kpi-sparkcard .kpi-footer {
   display: flex;
   align-items: center;
@@ -3543,7 +3368,6 @@ body.role-user .insight-panel { display: none !important; }
   color: var(--text-muted) !important;
 }
 
-/* Badge default (tanpa .up/.down) — abu netral */
 #page-operasional .kpi-sparkcard .kpi-badge:not(.up):not(.down) {
   background: #F3F4F6;
   color: #6B7280;
@@ -3552,9 +3376,7 @@ body.role-user .insight-panel { display: none !important; }
   padding: 3px 8px;
   border-radius: 20px;
 }
-/* ══════════════════════════════════════════
-   KPI OPERATING CONTRIBUTION — Featured Card
-   ══════════════════════════════════════════ */
+
 .kpi-oc-featured {
   background: linear-gradient(160deg, #1a3699 0%, #1E3FAE 55%, #2347c5 100%) !important;
   border: 1px solid rgba(255,255,255,0.15) !important;
@@ -3572,7 +3394,7 @@ body.role-user .insight-panel { display: none !important; }
   transform: translateY(-4px) !important;
   box-shadow: 0 10px 36px rgba(26,58,92,0.45), 0 2px 8px rgba(0,0,0,0.18) !important;
 }
-/* Subtle ambient circle top-right */
+
 .kpi-oc-featured::after {
   content: '';
   position: absolute;
@@ -3609,7 +3431,7 @@ body.role-user .insight-panel { display: none !important; }
   box-shadow: 0 0 5px rgba(96,165,250,0.8);
   flex-shrink: 0;
 }
-/* Change badge override */
+
 .kpi-oc-featured .kpi-oc-changebadge {
   background: rgba(74,222,128,0.15) !important;
   color: #4ade80 !important;
@@ -3648,9 +3470,6 @@ body.role-user .insight-panel { display: none !important; }
   margin-top: auto;
 }
 
-/* ══════════════════════════════════════════
-   KELOLA BANNER — Button in Header
-   ══════════════════════════════════════════ */
 .btn-kelola-banner {
   display: flex;
   align-items: center;
@@ -3687,9 +3506,6 @@ body.role-user .insight-panel { display: none !important; }
   padding: 0 5px;
 }
 
-/* ══════════════════════════════════════════
-   BANNER DISPLAY AREA (shown to all users)
-   ══════════════════════════════════════════ */
 #bannerArea {
   width: 100%;
   display: flex;
@@ -3778,12 +3594,8 @@ body.role-user .insight-panel { display: none !important; }
 }
 .banner-dismiss-btn:hover { background: rgba(0,0,0,0.12); }
 
-/* hide banner area on homepage */
 body.on-homepage #bannerArea { display: none !important; }
 
-/* ══════════════════════════════════════════
-   BANNER MANAGEMENT PANEL
-   ══════════════════════════════════════════ */
 .banner-panel-backdrop {
   position: fixed;
   inset: 0;
@@ -3845,7 +3657,6 @@ body.on-homepage #bannerArea { display: none !important; }
 }
 .banner-panel-close:hover { background: #FEE2E2; color: var(--accent); border-color: #FECACA; }
 
-/* Banner Add Form */
 .banner-add-form {
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
@@ -3964,7 +3775,6 @@ body.on-homepage #bannerArea { display: none !important; }
 }
 .banner-save-btn:hover { background: #6D28D9; transform: translateY(-1px); }
 
-/* Banner list */
 .banner-list-header {
   padding: 12px 20px 8px;
   font-size: 11px;
@@ -4079,7 +3889,6 @@ body.on-homepage #bannerArea { display: none !important; }
   color: var(--text-muted);
 }
 
-/* Empty banner state */
 .banner-empty-state {
   flex: 1;
   display: flex;
@@ -4101,9 +3910,6 @@ body.on-homepage #bannerArea { display: none !important; }
 .banner-empty-state p { font-size: 14px; font-weight: 600; color: var(--text-primary); }
 .banner-empty-state span { font-size: 12.5px; color: var(--text-secondary); }
 
-/* ══════════════════════════════════════════
-   POST-SAVE ANNOUNCEMENT MODAL
-   ══════════════════════════════════════════ */
 .announce-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -4197,14 +4003,11 @@ body.on-homepage #bannerArea { display: none !important; }
   transition: background 0.15s, transform 0.15s;
 }
 .announce-btn-create:hover { background: #6D28D9; transform: translateY(-1px); }
-/* ══════════════════════════════════════════
-   PAGE: LAPORAN KEUANGAN
-   ══════════════════════════════════════════ */
 
 .lk-hero {
   position: relative;
   background: linear-gradient(135deg, #2563EB 0%, #4F46E5 60%, #3730A3 100%);
- 
+
   padding: 56px 48px 0;
   overflow: hidden;
   min-height: 300px;
@@ -4284,7 +4087,6 @@ body.on-homepage #bannerArea { display: none !important; }
 }
 .lk-hero-wave svg { width: 100%; display: block; height: 80px; }
 
-/* Archive */
 .lk-archive-section {
   background: #f0f4ff;
   padding: 36px 48px 48px;
@@ -4303,7 +4105,6 @@ body.on-homepage #bannerArea { display: none !important; }
   margin: 0;
 }
 
-/* Accordion */
 .lk-accordion-list { display: flex; flex-direction: column; gap: 16px; }
 .lk-accordion {
   background: #fff;
@@ -4438,7 +4239,7 @@ body.on-homepage #bannerArea { display: none !important; }
   transition: background .2s, transform .15s;
 }
 .lk-report-dl-btn:hover { background: #1d4ed8; transform: translateY(-1px); }
-/* ── Laporan Keuangan: full-bleed layout ── */
+
 #page-laporan-keuangan.page-body {
   padding: 0;
   gap: 0;
@@ -4468,7 +4269,6 @@ a.lk-report-dl-btn {
   display: flex;
 }
 
-/* ── Butuh Bantuan Section ── */
 .lk-help-section {
   background: var(--bg, #f1f5f9);
   padding: 48px 32px 56px;
@@ -4596,7 +4396,7 @@ a.lk-report-dl-btn {
   .lk-help-title  { font-size: 22px; }
   .lk-help-inner  { padding: 36px 20px 32px; }
 }
-/* ══ PROFILE DROPDOWN ══ */
+
 .header-user { position: relative; }
 
 .user-avatar { cursor: pointer; }
@@ -4651,19 +4451,16 @@ a.lk-report-dl-btn {
   margin: 4px 0;
 }
 
-/* Sembunyikan admin items untuk non-admin */
 body:not(.role-admin) .admin-only-item { display: none !important; }
 .header-right {
   margin-left: auto;
 }
 
-    /* ── Sembunyikan tombol login di homepage ketika sudah login ── */
     body.role-admin #hpLoginBtn,
     body.role-user  #hpLoginBtn,
     body.role-admin #hpBtnPrimary,
     body.role-user  #hpBtnPrimary { display: none !important; }
 
-    /* ── Guest login button ── */
     .login-guest-divider {
       display: flex; align-items: center; gap: 8px;
       margin: 2px 0; color: #94a3b8; font-size: 11.5px;
@@ -4684,7 +4481,7 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
     .login-guest-btn:hover {
       background: #f8fafc; border-color: #94a3b8; color: #475569;
     }
-    /* ── KPI 5-column grid ── */
+
     .kpi-grid.kpi-5 {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -4697,21 +4494,17 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
       .kpi-grid.kpi-5 { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* ── KPI value color variants ── */
     .kpi-val-green  { color: #16A34A; }
     .kpi-val-blue   { color: #2563EB; }
     .kpi-val-purple { color: #9333EA; }
     .kpi-val-yellow { color: #CA8A04; }
 
-    /* ── Sparkcard accent variants ── */
     .kpi-sparkcard-purple { border-top: 3px solid #9333EA; }
     .kpi-sparkcard-yellow { border-top: 3px solid #CA8A04; }
 
-    /* ── 3-tab modal layout ── */
     .modal-tabs { flex-wrap: wrap; }
     .modal-tab  { flex: 1; justify-content: center; padding: 9px 12px; font-size: 12.5px; }
 
-    /* ── KFI chart iframe fix ── */
     .kfi-chart-body {
       position: relative;
       width: 100%;
@@ -4727,12 +4520,11 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
       display: block;
       z-index: 1;
     }
-    /* Hide any residual placeholder elements */
+
     .kfi-embed-placeholder {
       display: none !important;
     }
 
-    /* ── MODAL HAPUS DATA — Professional Styling ── */
     .danger-zone-header {
       display: flex;
       align-items: center;
@@ -4760,7 +4552,6 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
       font-size: 12px; color: #ef4444; margin-top: 2px;
     }
 
-    /* Delete selector columns */
     .del-columns {
       display: grid;
       grid-template-columns: 1.6fr 1fr 1fr;
@@ -4776,7 +4567,6 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
     }
     .del-col-label .req { color: #EF4444; font-size: 13px; }
 
-    /* Custom list boxes */
     .del-listbox {
       width: 100%;
       border: 1.5px solid var(--border);
@@ -4829,7 +4619,6 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
     }
     .del-item.selected .del-dot { background: #3b82f6; }
 
-    /* Year & Quarter pill grid */
     .del-pill-grid {
       display: flex; flex-direction: column; gap: 5px;
       padding: 8px;
@@ -4858,7 +4647,6 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
       background: #64748b; border-color: #64748b; color: white; border-style: solid;
     }
 
-    /* Summary bar */
     .del-summary {
       margin-top: 16px;
       background: #f8fafc;
@@ -4880,7 +4668,6 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
     }
     .del-summary-tag.danger { background: #fee2e2; color: #b91c1c; }
 
-    /* Delete button */
     .btn-hapus {
       margin-top: 14px;
       background: #EF4444;
@@ -4901,23 +4688,18 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
   opacity: .55;
   box-shadow: none;
 }
- /* ══════════════════════════════════════════
-   Dashboard Analytics PT INDOCEMENT
-   style.css — Redesigned v2
-   ══════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── CSS VARIABLES ── */
 :root {
   --sidebar-w: 260px;
   --header-h: 68px;
   --toggle-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --bg: #F0F4FA;
   --surface: #FFFFFF;
-  --sidebar-bg: #1C3FAA;     /* deep royal blue — matches screenshot */
+  --sidebar-bg: #1C3FAA;
   --accent: #C0392B;
   --accent2: #2563EB;
   --accent3: #1A3A5C;
@@ -4943,11 +4725,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ══════════════════════════════════════════
-   ADMIN PAGE — Full-width Layout
-   ══════════════════════════════════════════ */
-
-/* Hide sidebar and header when on admin page */
 body.admin-mode .sidebar,
 body.admin-mode .header {
   display: none !important;
@@ -4967,7 +4744,6 @@ body.admin-mode .main {
   flex-direction: column;
 }
 
-/* ── Admin Header (Custom) ── */
 .admin-page-header {
   background: linear-gradient(135deg, #1C3FAA 0%, #2563EB 100%);
   padding: 48px 64px;
@@ -4980,7 +4756,6 @@ body.admin-mode .main {
   overflow: hidden;
 }
 
-/* Decorative background pattern */
 .admin-page-header::before {
   content: '';
   position: absolute;
@@ -5057,7 +4832,6 @@ body.admin-mode .main {
   flex-shrink: 0;
 }
 
-/* ── Admin Content Area ── */
 .admin-page-content {
   flex: 1;
   overflow-y: auto;
@@ -5084,12 +4858,12 @@ body.admin-mode .main {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 16px 28px;        /* ← diubah */
+  padding: 16px 28px;
   border: 1.5px solid transparent;
   border-radius: 11px;
   background: transparent;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px;           /* ← diubah */
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-secondary);
   cursor: pointer;
@@ -5136,7 +4910,6 @@ body.admin-mode .main {
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 
-/* ── Hapus Data Section ── */
 .admin-hapus-wrap {
   display: flex;
   flex-direction: column;
@@ -5188,7 +4961,6 @@ body.admin-mode .main {
   color: #b91c1c;
 }
 
-/* Delete form card */
 .del-pilihan-card {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border: 1.5px solid var(--border);
@@ -5269,7 +5041,6 @@ body.admin-mode .main {
   margin-bottom: 16px;
 }
 
-/* ── Searchable Dropdown ── */
 .del-searchable-wrap {
   position: relative;
   width: 100%;
@@ -5452,7 +5223,6 @@ body.admin-mode .main {
   color: #3730a3;
 }
 
-/* Confirm box */
 .del-confirm-box {
   border-radius: 14px;
   padding: 16px 20px;
@@ -5477,7 +5247,6 @@ body.admin-mode .main {
   gap: 12px;
 }
 
-/* Pastikan atribut hidden tidak di-override oleh display: flex */
 .del-confirm-inner[hidden] {
   display: none !important;
 }
@@ -5539,7 +5308,6 @@ body.admin-mode .main {
   color: #c2410c;
 }
 
-/* Actions */
 .admin-hapus-actions {
   display: flex;
   align-items: center;
@@ -5605,7 +5373,6 @@ body.admin-mode .main {
   border-color: #fecaca;
 }
 
-/* ── Kelola Banner Section ── */
 .admin-banner-wrap {
   display: flex;
   flex-direction: column;
@@ -5648,7 +5415,6 @@ body.admin-mode .main {
   font-weight: 500;
 }
 
-/* Banner form */
 .banner-add-form {
   background: linear-gradient(135deg, #fafbff 0%, #f8fafc 100%);
   border: 1.5px solid var(--border);
@@ -5800,7 +5566,6 @@ body.admin-mode .main {
   transform: translateY(0);
 }
 
-/* Banner list header */
 .banner-list-header {
   padding: 14px 20px;
   font-size: 11px;
@@ -5812,7 +5577,6 @@ body.admin-mode .main {
   margin-top: 20px;
 }
 
-/* Banner list */
 .banner-list {
   display: flex;
   flex-direction: column;
@@ -5820,7 +5584,6 @@ body.admin-mode .main {
   padding: 16px 0;
 }
 
-/* Banner management card */
 .banner-mgmt-card {
   border: 1.5px solid var(--border);
   border-radius: 14px;
@@ -5970,7 +5733,6 @@ body.admin-mode .main {
   color: var(--text-muted);
 }
 
-/* Empty state */
 .banner-empty-state {
   display: flex;
   flex-direction: column;
@@ -6003,10 +5765,6 @@ body.admin-mode .main {
   font-size: 13px;
   color: var(--text-secondary);
 }
-
-/* ════════════════════════════════════════════
-   RESPONSIVE — Admin Page
-   ════════════════════════════════════════════ */
 
 @media (max-width: 1200px) {
   .admin-page-content {
@@ -6085,9 +5843,6 @@ body.admin-mode .main {
   }
 }
 
-/* ══════════════════════════════════════════
-   SIDEBAR — Standard Layout (tetap unchanged)
-   ══════════════════════════════════════════ */
 .sidebar {
   width: var(--sidebar-w);
   background: var(--sidebar-bg);
@@ -6218,9 +5973,6 @@ body.sidebar-hidden .main {
   width: 100%;
 }
 
-/* ══════════════════════════════════════════
-   MAIN + HEADER (Standard)
-   ══════════════════════════════════════════ */
 .main {
   margin-left: var(--sidebar-w);
   width: calc(100% - var(--sidebar-w));
@@ -6413,7 +6165,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 }
 .page-body.active-page { display: flex; }
 
-/* PAGE STATE — Admin Mode */
 body.admin-mode .page-body { display: none !important; }
 body.admin-mode .admin-page { display: flex !important; }
 
@@ -6425,7 +6176,6 @@ body.admin-mode .admin-page { display: flex !important; }
 }
 body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 
-/* === ADMIN PAGE: Hide sidebar & header === */
 body.admin-active .sidebar,
 body.admin-active .sidebar-overlay {
   display: none !important;
@@ -6436,7 +6186,6 @@ body.admin-active .main {
   padding-top: 0 !important;
 }
 
-/* ── Profile page: hide sidebar & header ── */
 body.profile-active .sidebar,
 body.profile-active .sidebar-overlay {
   display: none !important;
@@ -6445,9 +6194,6 @@ body.profile-active .sidebar-overlay {
 body.profile-active .main {
   margin-left: 0 !important;
 }
-/* ══════════════════════════════════════════════
-   ADMIN PANEL — TAB: UPLOAD LAPORAN KEUANGAN
-   ══════════════════════════════════════════════ */
 
 .admin-upload-wrap {
   display: flex;
@@ -6455,7 +6201,6 @@ body.profile-active .main {
   gap: 20px;
 }
 
-/* Intro header */
 .admin-upload-intro {
   display: flex;
   align-items: center;
@@ -6481,7 +6226,6 @@ body.profile-active .main {
   font-size: 12px; color: #15803d; margin-top: 2px;
 }
 
-/* Form card */
 .upload-form-card {
   background: #fff;
   border: 1px solid #e5e7eb;
@@ -6517,7 +6261,6 @@ body.profile-active .main {
 }
 input[type="date"].upload-input { cursor: pointer; }
 
-/* Dropzone */
 .upload-dropzone {
   position: relative;
   border: 2px dashed #d1d5db;
@@ -6547,7 +6290,6 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .upload-dropzone-hint { font-size: 11px; color: #9ca3af; }
 
-/* File preview after selection */
 .upload-file-preview {
   display: flex; align-items: center; gap: 10px;
   padding: 12px 16px; width: 100%;
@@ -6565,7 +6307,6 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .upload-file-remove:hover { color: #ef4444; background: #fef2f2; }
 
-/* Footer */
 .upload-form-footer {
   display: flex; align-items: center; justify-content: space-between;
   margin-top: 16px; padding-top: 16px;
@@ -6590,7 +6331,6 @@ input[type="date"].upload-input { cursor: pointer; }
   display: inline-flex; align-items: center; gap: 6px;
 }
 
-/* Uploaded list header */
 .upload-list-header {
   display: flex; align-items: center; gap: 8px;
   font-size: 13px; font-weight: 700; color: #374151;
@@ -6604,7 +6344,6 @@ input[type="date"].upload-input { cursor: pointer; }
   min-width: 20px; text-align: center;
 }
 
-/* Uploaded report list */
 .upload-report-list {
   display: flex; flex-direction: column; gap: 10px;
 }
@@ -6655,7 +6394,6 @@ input[type="date"].upload-input { cursor: pointer; }
 .upload-report-btn:hover { background: #fef2f2; border-color: #fca5a5; color: #dc2626; }
 .upload-report-btn.view:hover { background: #eff6ff; border-color: #93c5fd; color: #2563eb; }
 
-/* Empty state */
 .upload-empty-state {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -6673,17 +6411,12 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .upload-empty-state span { font-size: 12px; }
 
-/* ══════════════════════════════════════════════
-   PAGE: PROFIL ADMIN
-   ══════════════════════════════════════════════ */
-
 .profile-page-wrap {
   max-width: 1060px;
   margin: 0 auto;
   padding: 36px 32px 60px;
 }
 
-/* Header */
 .profile-page-header {
   display: flex;
   align-items: center;
@@ -6708,7 +6441,6 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .profile-page-subtitle { font-size: 13px; color: #6b7280; }
 
-/* Body layout */
 .profile-page-body {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -6716,7 +6448,6 @@ input[type="date"].upload-input { cursor: pointer; }
   align-items: start;
 }
 
-/* LEFT COL */
 .profile-left-col { display: flex; flex-direction: column; gap: 16px; }
 
 .profile-avatar-card {
@@ -6793,7 +6524,6 @@ input[type="date"].upload-input { cursor: pointer; }
   0%,100% { opacity: 1; } 50% { opacity: 0.4; }
 }
 
-/* RIGHT COL */
 .profile-right-col { display: flex; flex-direction: column; gap: 20px; }
 
 .profile-form-card {
@@ -6844,7 +6574,6 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .profile-eye-btn:hover { color: #374151; }
 
-/* Password strength */
 .profile-pass-strength { margin-top: 12px; }
 .profile-pass-strength-label { font-size: 12px; color: #6b7280; margin-bottom: 6px; font-weight: 600; }
 .profile-pass-strength-label span { font-weight: 700; }
@@ -6856,7 +6585,6 @@ input[type="date"].upload-input { cursor: pointer; }
   transition: width 0.3s, background 0.3s;
 }
 
-/* Footer */
 .profile-form-footer {
   display: flex; align-items: center; justify-content: space-between;
   margin-top: 20px; padding-top: 18px; border-top: 1px solid #f3f4f6;
@@ -6887,11 +6615,6 @@ input[type="date"].upload-input { cursor: pointer; }
   .profile-field-full { grid-column: 1; }
 }
 
-/* ══════════════════════════════════════════════
-   REGISTER MODAL
-   ══════════════════════════════════════════════ */
-
-/* Link daftar di login footer */
 .login-register-link {
   margin-top: 8px;
   font-size: 12px; color: #6b7280; text-align: center;
@@ -6903,7 +6626,6 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .login-register-link button:hover { color: #1d4ed8; }
 
-/* Step indicator */
 .reg-steps {
   display: flex; align-items: center; justify-content: center;
   padding: 14px 24px 14px;
@@ -6931,10 +6653,8 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .reg-step-line.active { background: #2563eb; }
 
-/* Two-col */
 .reg-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-/* Select */
 .req { color: #ef4444; }
 .reg-select-wrap { position: relative; }
 .reg-select {
@@ -6957,7 +6677,6 @@ input[type="date"].upload-input { cursor: pointer; }
   transform: translateY(-50%); pointer-events: none; color: #94a3b8;
 }
 
-/* Password strength */
 .reg-pass-strength { display: flex; align-items: center; gap: 8px; margin-top: 5px; }
 .reg-pass-strength-bar {
   flex: 1; height: 4px; background: #e5e7eb; border-radius: 10px; overflow: hidden;
@@ -6965,7 +6684,6 @@ input[type="date"].upload-input { cursor: pointer; }
 .reg-pass-strength-fill { height: 100%; border-radius: 10px; width: 0%; transition: width 0.3s, background 0.3s; }
 .reg-pass-strength-label { font-size: 10.5px; font-weight: 700; white-space: nowrap; min-width: 68px; }
 
-/* Button row */
 .reg-btn-row { display: flex; gap: 8px; margin-top: 2px; }
 .reg-back-btn {
   display: inline-flex; align-items: center; gap: 6px;
@@ -6978,7 +6696,6 @@ input[type="date"].upload-input { cursor: pointer; }
 .reg-back-btn:hover { background: #e5e7eb; }
 .reg-submit-btn { flex: 1; margin-top: 0 !important; }
 
-/* Success */
 .reg-success-wrap {
   display: flex; flex-direction: column;
   align-items: center; text-align: center; gap: 10px;
@@ -6997,11 +6714,7 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .reg-success-wrap h3 { font-size: 16px; font-weight: 800; color: #0f1f5c; margin: 0; }
 .reg-success-wrap p  { font-size: 12.5px; color: #6b7280; line-height: 1.6; margin: 0; }
-/* ══════════════════════════════════════════
-   HALAMAN PROFIL v2 — pf2-* classes
-   ══════════════════════════════════════════ */
 
-/* Wrapper */
 .pf2-wrap {
   max-width: 1080px;
   margin: 0 auto;
@@ -7010,7 +6723,6 @@ input[type="date"].upload-input { cursor: pointer; }
   box-sizing: border-box;
 }
 
-/* Page Header */
 .pf2-header {
   display: flex;
   align-items: center;
@@ -7048,7 +6760,6 @@ input[type="date"].upload-input { cursor: pointer; }
   margin-top: 2px;
 }
 
-/* Body layout: left + right */
 .pf2-body {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -7056,7 +6767,6 @@ input[type="date"].upload-input { cursor: pointer; }
   align-items: start;
 }
 
-/* ── LEFT: Identity Card ── */
 .pf2-left {}
 
 .pf2-id-card {
@@ -7172,18 +6882,16 @@ input[type="date"].upload-input { cursor: pointer; }
   flex-shrink: 0;
 }
 
-/* ── RIGHT: Tabbed Panel ── */
 .pf2-right {
   background: var(--surface);
   border-radius: 18px;
   box-shadow: var(--shadow);
   border: 1.5px solid var(--border);
   overflow: hidden;
-  min-width: 0; /* prevent grid blowout */
+  min-width: 0;
   width: 100%;
 }
 
-/* Tab bar */
 .pf2-tabs {
   display: flex;
   background: #f1f4f9;
@@ -7220,17 +6928,13 @@ input[type="date"].upload-input { cursor: pointer; }
   font-weight: 700;
 }
 
-/* Hide Jabatan/Posisi for user/visitor role */
 body.role-user #pf2-position-field,
 body.role-guest #pf2-position-field { display: none !important; }
 
-/* Sembunyikan tombol notifikasi untuk aktor Guest */
 body.role-guest #notifBtn { display: none !important; }
 
-/* Sembunyikan menu Profil untuk aktor Guest (tidak punya akun) */
 body.role-guest #ddProfil { display: none !important; }
 
-/* Panels */
 .pf2-panel { display: none; padding: 24px 28px 24px; width: 100%; box-sizing: border-box; margin-top: 4px; }
 .pf2-panel.active { display: block; }
 
@@ -7246,7 +6950,6 @@ body.role-guest #ddProfil { display: none !important; }
   margin-top: 4px;
 }
 
-/* Form grid — 2 equal columns */
 .pf2-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -7292,7 +6995,6 @@ body.role-guest #ddProfil { display: none !important; }
   cursor: not-allowed;
 }
 
-/* Password input wrapper with eye button */
 .pf2-input-wrap {
   position: relative;
 }
@@ -7315,7 +7017,6 @@ body.role-guest #ddProfil { display: none !important; }
 }
 .pf2-eye-btn:hover { color: var(--text-primary); }
 
-/* Password strength */
 .profile-pass-strength { margin-top: 6px; }
 .profile-pass-strength-label { font-size: 12px; color: #6b7280; margin-bottom: 6px; font-weight: 600; }
 .profile-pass-strength-bar {
@@ -7331,7 +7032,6 @@ body.role-guest #ddProfil { display: none !important; }
   width: 0%;
 }
 
-/* Requirements box */
 .pf2-req-box {
   background: #f0f9ff;
   border: 1px solid #bae6fd;
@@ -7356,7 +7056,6 @@ body.role-guest #ddProfil { display: none !important; }
   color: #0c4a6e;
 }
 
-/* Panel footer */
 .pf2-footer {
   display: flex;
   align-items: center;
@@ -7385,7 +7084,6 @@ body.role-guest #ddProfil { display: none !important; }
 .pf2-save-btn:hover { opacity: 0.88; }
 .pf2-save-btn:active { transform: scale(0.98); }
 
-/* System info cards */
 .pf2-sys-cards {
   display: flex;
   flex-direction: column;
@@ -7461,7 +7159,6 @@ body.role-guest #ddProfil { display: none !important; }
   flex-shrink: 0;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .pf2-body { grid-template-columns: 1fr; }
   .pf2-wrap { padding: 20px 14px 48px; }
@@ -7470,49 +7167,38 @@ body.role-guest #ddProfil { display: none !important; }
   .pf2-tabs { overflow-x: auto; }
   .pf2-tab { font-size: 11px; padding: 12px 8px; white-space: nowrap; }
 }
-/* ══════════════════════════════════════════
-   MOBILE RESPONSIVE — Comprehensive Fix
-   Target: max-width 768px (smartphone)
-   ══════════════════════════════════════════ */
 
 @media (max-width: 768px) {
 
-  /* ── Root variables for mobile ── */
   :root {
     --header-h: 58px;
   }
 
-  /* ── Body: no flex-row on mobile ── */
   body {
     display: block;
   }
 
-  /* ── SIDEBAR: hidden by default on mobile, slide in as overlay ── */
   .sidebar {
     transform: translateX(calc(-1 * var(--sidebar-w)));
     box-shadow: none;
     z-index: 200;
   }
 
-  /* When sidebar is visible on mobile (no sidebar-hidden class = sidebar shown) */
   body:not(.sidebar-hidden) .sidebar {
     transform: translateX(0);
     box-shadow: 4px 0 32px rgba(14, 40, 120, 0.30);
   }
 
-  /* Overlay visible when sidebar is open on mobile */
   body:not(.sidebar-hidden) .sidebar-overlay {
     opacity: 1;
     pointer-events: auto;
   }
 
-  /* ── MAIN: full width on mobile ── */
   .main {
     margin-left: 0 !important;
     width: 100% !important;
   }
 
-  /* ── HEADER: compact on mobile ── */
   .header {
     padding: 0 12px;
     gap: 10px;
@@ -7557,7 +7243,6 @@ body.role-guest #ddProfil { display: none !important; }
     flex-shrink: 0;
   }
 
-  /* Hide user info text on mobile, show only avatar */
   .user-info { display: none !important; }
 
   .user-avatar {
@@ -7566,12 +7251,10 @@ body.role-guest #ddProfil { display: none !important; }
     font-size: 12px;
   }
 
-  /* ── PAGE BODY: tighter padding on mobile ── */
   .page-body {
     padding: 14px 12px 48px;
   }
 
-  /* ── KPI GRIDS ── */
   .kpi-3,
   .kpi-4 {
     grid-template-columns: 1fr 1fr;
@@ -7583,7 +7266,6 @@ body.role-guest #ddProfil { display: none !important; }
     gap: 10px;
   }
 
-  /* ── CHART ROWS ── */
   .charts-row,
   .fcf-bottom-row,
   .two-col-grid,
@@ -7592,7 +7274,6 @@ body.role-guest #ddProfil { display: none !important; }
     gap: 12px;
   }
 
-  /* ── CARDS: reduce padding ── */
   .kpi-card,
   .card,
   .chart-card,
@@ -7600,18 +7281,15 @@ body.role-guest #ddProfil { display: none !important; }
     padding: 14px 12px;
   }
 
-  /* ── KPI CARD text ── */
   .kpi-card .kpi-value {
     font-size: 20px;
   }
 
-  /* ── FORM ROWS: stack on mobile ── */
   .form-row {
     grid-template-columns: 1fr;
     gap: 10px;
   }
 
-  /* ── MODAL: full-screen style on mobile ── */
   .modal {
     width: calc(100vw - 16px);
     max-height: 95vh;
@@ -7645,21 +7323,18 @@ body.role-guest #ddProfil { display: none !important; }
     justify-content: center;
   }
 
-  /* ── LOGIN MODAL ── */
   .login-modal {
     width: calc(100vw - 24px);
     max-height: 95vh;
     overflow-y: auto;
   }
 
-  /* ── NOTIFICATION PANEL ── */
   .notif-panel {
     width: calc(100vw - 24px);
     right: 12px !important;
     left: 12px !important;
   }
 
-  /* ── INSIGHT PANEL ── */
   .insight-panel {
     width: 100vw;
     right: 0;
@@ -7669,7 +7344,6 @@ body.role-guest #ddProfil { display: none !important; }
     max-height: 80vh;
   }
 
-  /* ── LAPORAN KEUANGAN page ── */
   .lk-year-grid {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -7691,12 +7365,10 @@ body.role-guest #ddProfil { display: none !important; }
     font-size: 28px;
   }
 
-  /* ── FINANCIAL OVERVIEW / DASHBOARD ── */
   .fo-cards-col {
     grid-template-columns: 1fr;
   }
 
-  /* ── TABLE: horizontal scroll ── */
   .table-body {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -7706,12 +7378,10 @@ body.role-guest #ddProfil { display: none !important; }
     min-width: 500px;
   }
 
-  /* ── HEADER BREADCRUMB: hide on mobile ── */
   .header-breadcrumb {
     display: none;
   }
 
-  /* ── FILTER BAR: wrap on mobile ── */
   .filter-bar {
     flex-wrap: wrap;
     gap: 8px;
@@ -7722,7 +7392,6 @@ body.role-guest #ddProfil { display: none !important; }
     min-width: 120px;
   }
 
-  /* ── QUARTER TABS: scroll horizontally ── */
   .quarter-tabs {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -7731,12 +7400,10 @@ body.role-guest #ddProfil { display: none !important; }
     padding-bottom: 4px;
   }
 
-  /* ── DATA CARDS in financial overview ── */
   .fo-card {
     padding: 14px 12px;
   }
 
-  /* ── PROFILE PAGE ── */
   .pf2-body {
     grid-template-columns: 1fr;
   }
@@ -7760,7 +7427,6 @@ body.role-guest #ddProfil { display: none !important; }
     white-space: nowrap;
   }
 
-  /* ── FAB (floating action button) ── */
   .insight-fab {
     bottom: 16px;
     right: 16px;
@@ -7768,32 +7434,27 @@ body.role-guest #ddProfil { display: none !important; }
     height: 48px;
   }
 
-  /* ── ANNOUNCEMENT BANNER ── */
   .announcement-banner {
     padding: 10px 12px;
     font-size: 12.5px;
   }
 
-  /* ── SIDEBAR TOGGLE: slightly bigger tap target on mobile ── */
   .sidebar-toggle-btn {
     width: 38px;
     height: 38px;
   }
 
-  /* ── Ikhtisar / summary cards ── */
   .summary-grid,
   .metrics-grid {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
 
-  /* ── Fix stacking context for page sections ── */
   .page-section {
     margin-bottom: 16px;
   }
 }
 
-/* ── Extra small phones (< 400px) ── */
 @media (max-width: 400px) {
   .kpi-3,
   .kpi-4,
@@ -7818,15 +7479,12 @@ body.role-guest #ddProfil { display: none !important; }
   }
 }
 
-/* ── Mobile sidebar: default shown = hidden on mobile (on load) ── */
 @media (max-width: 768px) {
-  /* On mobile, the "normal" state (no class) should HIDE the sidebar
-     We override: sidebar-hidden behavior is the DEFAULT */
+
   body.sidebar-hidden .sidebar {
     transform: translateX(calc(-1 * var(--sidebar-w)));
   }
 
-  /* When sidebar is explicitly opened on mobile via JS toggle */
   body.mobile-sidebar-open .sidebar {
     transform: translateX(0) !important;
     box-shadow: 4px 0 32px rgba(14, 40, 120, 0.30);
@@ -7836,23 +7494,19 @@ body.role-guest #ddProfil { display: none !important; }
     opacity: 1 !important;
     pointer-events: auto !important;
   }
-}/* ══════════════════════════════════════════
-   Dashboard Analytics PT INDOCEMENT
-   style.css — Redesigned v2
-   ══════════════════════════════════════════ */
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── CSS VARIABLES ── */
 :root {
   --sidebar-w: 260px;
   --header-h: 68px;
   --toggle-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --bg: #F0F4FA;
   --surface: #FFFFFF;
-  --sidebar-bg: #1C3FAA;     /* deep royal blue — matches screenshot */
+  --sidebar-bg: #1C3FAA;
   --accent: #C0392B;
   --accent2: #2563EB;
   --accent3: #1A3A5C;
@@ -7878,9 +7532,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ══════════════════════════════════════════
-   SIDEBAR  — Redesigned
-   ══════════════════════════════════════════ */
 .sidebar {
   width: var(--sidebar-w);
   background: var(--sidebar-bg);
@@ -7964,7 +7615,6 @@ body {
 
 .nav-icon { width: 16px; height: 16px; opacity: 0.75; flex-shrink: 0; }
 
-/* Stagger animation for nav items */
 .sidebar-nav .nav-item:nth-child(1) { transition-delay: 0.04s; }
 .sidebar-nav .nav-item:nth-child(2) { transition-delay: 0.08s; }
 .sidebar-nav .nav-item:nth-child(3) { transition-delay: 0.12s; }
@@ -7986,7 +7636,6 @@ body.sidebar-hidden .nav-item {
 body.sidebar-hidden .sidebar-brand-text { opacity: 0; transform: translateX(-10px); }
 body.sidebar-hidden .nav-section-label { opacity: 0; }
 
-/* ── System Status Footer ── */
 .sidebar-system-status {
   padding: 12px 14px 16px;
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -8018,7 +7667,6 @@ body.sidebar-hidden .sidebar-system-status { opacity: 0; }
 .status-label { font-size: 9px; color: rgba(255,255,255,0.35); font-weight: 500; text-transform: uppercase; letter-spacing: 0.6px; }
 .status-value { font-size: 11px; color: #22C55E; font-weight: 600; }
 
-/* ── Sidebar hidden state ── */
 body.sidebar-hidden .sidebar {
   transform: translateX(calc(-1 * var(--sidebar-w)));
   box-shadow: none;
@@ -8028,9 +7676,6 @@ body.sidebar-hidden .main {
   width: 100%;
 }
 
-/* ══════════════════════════════════════════
-   MAIN + HEADER  — Redesigned
-   ══════════════════════════════════════════ */
 .main {
   margin-left: var(--sidebar-w);
   width: calc(100% - var(--sidebar-w));
@@ -8052,7 +7697,6 @@ body.sidebar-hidden .main {
   box-shadow: 0 1px 0 var(--border), 0 2px 12px rgba(0,0,0,0.04);
 }
 
-/* ── Toggle Button (fixed, always visible) ── */
 .sidebar-toggle-btn {
   position: relative;
   width: 36px; height: 36px;
@@ -8077,7 +7721,6 @@ body.sidebar-hidden .main {
 }
 .sidebar-toggle-btn:active { transform: scale(0.95); }
 
-/* Active state when sidebar is hidden */
 body.sidebar-hidden .sidebar-toggle-btn {
   background: var(--accent2);
   border-color: var(--accent2);
@@ -8117,7 +7760,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   transform: translate(-50%, -50%) scale(1); opacity: 0;
 }
 
-/* Tooltip — now appears below since button is in header */
 .sidebar-toggle-btn::after {
   content: attr(data-tooltip);
   position: absolute; top: calc(100% + 10px); left: 50%;
@@ -8137,7 +7779,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .sidebar-toggle-btn:hover::after,
 .sidebar-toggle-btn:hover::before { opacity: 1; transform: translateX(-50%) translateY(0); }
 
-/* ── Header Brand ── */
 .header-brand {
   display: flex; align-items: center; gap: 14px; flex: 0 0 auto;
 }
@@ -8169,13 +7810,10 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   vertical-align: middle;
 }
 
-/* ── Header Right ── */
 .header-right {
   display: flex; align-items: center; gap: 10px; margin-left: auto;
 }
 
-
-/* Icon Button */
 .header-icon-btn {
   position: relative;
   width: 38px; height: 38px; border-radius: 9px;
@@ -8203,7 +7841,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   100% { transform: scale(1); }
 }
 
-/* User Block */
 .header-user {
   display: flex; align-items: center; gap: 10px;
   padding: 5px 12px 5px 6px;
@@ -8224,9 +7861,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .user-name { font-size: 12.5px; font-weight: 700; color: var(--text-primary); }
 .user-role { font-size: 10.5px; color: var(--text-muted); }
 
-/* ══════════════════════════════════════════
-   PAGE BODY / SPA ROUTING
-   ══════════════════════════════════════════ */
 .page-body {
   display: none;
   padding: 26px 32px 40px;
@@ -8234,7 +7868,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 }
 .page-body.active-page { display: flex; }
 
-/* Page header row */
 .page-header-row {
   display: flex; align-items: center; justify-content: space-between;
 }
@@ -8251,9 +7884,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   padding: 6px 14px; border-radius: 20px;
 }
 
-/* ══════════════════════════════════════════
-   FILTER BAR  — Redesigned (inline pills)
-   ══════════════════════════════════════════ */
 .filter-bar {
   background: var(--surface);
   border-radius: var(--radius);
@@ -8293,7 +7923,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   width: 1px; height: 24px; background: var(--border); flex-shrink: 0;
 }
 
-/* Quarter pill buttons */
 .quarter-btns {
   display: flex; align-items: center; gap: 4px;
   background: #F3F4F6; border-radius: 8px; padding: 3px;
@@ -8317,9 +7946,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 }
 .filter-showing strong { color: var(--accent2); font-weight: 700; }
 
-/* ══════════════════════════════════════════
-   KPI GRIDS
-   ══════════════════════════════════════════ */
 .kpi-grid { display: grid; gap: 18px; }
 .kpi-3    { grid-template-columns: repeat(3, 1fr); }
 .kpi-2    { grid-template-columns: repeat(2, 1fr); }
@@ -8333,7 +7959,7 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   transition: transform 0.22s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.22s ease;
   border: 1px solid rgba(229,231,235,0.7);
 }
-/* Subtle left accent bar */
+
 .kpi-card::before {
   content: '';
   position: absolute;
@@ -8350,7 +7976,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 }
 .kpi-card:hover::before { opacity: 1; }
 
-/* Remove accent bar for sparkcard variant */
 .kpi-grid.kpi-3 .kpi-card::before { display: block; }
 .kpi-sparkcard::before { display: none !important; }
 
@@ -8390,7 +8015,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .kpi-badge.down { background: #FEE2E2; color: var(--down); }
 .kpi-period { font-size: 11px; color: var(--text-muted); font-weight: 500; }
 
-/* Sparkline cards */
 .kpi-sparkcard {
   display: flex; flex-direction: column;
   padding: 22px 24px 0; background: var(--surface);
@@ -8412,9 +8036,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .kpi-compact .kpi-label { margin-top: 0; }
 .kpi-compact .kpi-value { margin-bottom: 0; font-size: 28px; }
 
-/* ══════════════════════════════════════════
-   CHART CARDS
-   ══════════════════════════════════════════ */
 .charts-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
 
 .chart-card {
@@ -8456,9 +8077,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .legend-dots { display: flex; align-items: center; gap: 6px; }
 .dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
 
-/* ══════════════════════════════════════════
-   TABLE CARD
-   ══════════════════════════════════════════ */
 .table-card {
   background: var(--surface); border-radius: var(--radius);
   box-shadow: var(--shadow); overflow: hidden;
@@ -8477,11 +8095,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   border: none; display: block;
 }
 
-/* ══════════════════════════════════════════
-   FCF & SUSTAINABILITY PAGE — Unique styles
-   ══════════════════════════════════════════ */
-
-/* FCF Trend Chart */
 .fcf-chart-wrap {
   padding: 16px 22px 0;
 }
@@ -8506,10 +8119,8 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
   background: repeating-linear-gradient(90deg, #9CA3AF 0, #9CA3AF 4px, transparent 4px, transparent 8px);
 }
 
-/* FCF Bottom Row */
 .fcf-bottom-row { grid-template-columns: 1fr 1fr; }
 
-/* Bar Chart */
 .fcf-bar-wrap {
   padding: 22px 22px 18px; flex: 1; display: flex; align-items: flex-end;
 }
@@ -8532,7 +8143,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .fcf-bar-pct { font-size: 11.5px; font-weight: 700; }
 .fcf-bar-pct.up { color: var(--up); }
 
-/* Breakdown Table */
 .fcf-breakdown-table {
   padding: 0 22px 20px;
 }
@@ -8572,9 +8182,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .highlight-row { background: #EFF6FF; border-radius: 8px; }
 .highlight-row:hover { background: #DBEAFE; }
 
-/* ══════════════════════════════════════════
-   COMING SOON PLACEHOLDER
-   ══════════════════════════════════════════ */
 .coming-soon {
   flex: 1; display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -8583,9 +8190,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 .coming-soon h2 { font-size: 20px; font-weight: 700; color: var(--text-secondary); }
 .coming-soon p  { font-size: 14px; }
 
-/* ══════════════════════════════════════════
-   OVERLAY
-   ══════════════════════════════════════════ */
 .sidebar-overlay {
   position: fixed; inset: 0;
   background: rgba(14,30,60,0.25); backdrop-filter: blur(2px);
@@ -8594,9 +8198,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 }
 body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 
-/* ══════════════════════════════════════════
-   NOTIFICATION PANEL
-   ══════════════════════════════════════════ */
 .notif-panel {
   position: fixed;
   width: 340px;
@@ -8643,9 +8244,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 .notif-content p { font-size: 12.5px; line-height: 1.5; color: var(--text-primary); }
 .notif-content span { font-size: 11px; color: var(--text-muted); margin-top: 2px; display: block; }
 
-/* ══════════════════════════════════════════
-   RESPONSIVE
-   ══════════════════════════════════════════ */
 @media (max-width: 1100px) {
   .user-info { display: none; }
   .kpi-3 { grid-template-columns: repeat(2, 1fr); }
@@ -8660,11 +8258,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   .kpi-2 { grid-template-columns: 1fr; }
 }
 
-/* ══════════════════════════════════════════
-   UTILITY: Taller chart body & table embed
-   ══════════════════════════════════════════ */
-
-/* Taller iframe height for scatter plot / full-width charts */
 .chart-body.chart-body-tall {
   min-height: 460px;
 }
@@ -8672,7 +8265,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   height: calc(460px + var(--mb-title-h));
 }
 
-/* Table embed inside table-card with proper height */
 .table-body.table-body-embed {
   overflow: hidden;
 }
@@ -8684,9 +8276,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   display: block;
 }
 
-/* ══════════════════════════════════════════
-   TOMBOL TAMBAH DATA — Header
-   ══════════════════════════════════════════ */
 .btn-tambah-data {
   display: flex; align-items: center; gap: 7px;
   padding: 8px 16px;
@@ -8705,9 +8294,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 }
 .btn-tambah-data:active { transform: translateY(0); }
 
-/* ══════════════════════════════════════════
-   MODAL OVERLAY
-   ══════════════════════════════════════════ */
 .modal-overlay {
   position: fixed; inset: 0;
   background: rgba(14,30,60,0.35);
@@ -8718,9 +8304,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 }
 .modal-overlay.open { opacity: 1; pointer-events: auto; }
 
-/* ══════════════════════════════════════════
-   MODAL
-   ══════════════════════════════════════════ */
 .modal {
   position: fixed;
   top: 50%; left: 50%;
@@ -8748,7 +8331,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   box-shadow: 0 20px 60px rgba(15, 23, 42, 0.15);
 }
 
-/* ══ ADMIN PANEL PAGE (hybrid) ══ */
 .admin-page {
   width: 100%;
   padding: 0;
@@ -8915,7 +8497,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   gap: 16px;
 }
 
-/* Banner zona bahaya */
 .admin-hapus-wrap .del-danger-banner,
 .modal-hapus .del-danger-banner {
   display: flex;
@@ -8957,7 +8538,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   color: #b91c1c;
 }
 
-/* Kartu pilihan hapus */
 .modal-hapus .del-pilihan-card {
   background: #fff;
   border: 1.5px solid #e5e7eb;
@@ -9081,7 +8661,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   color: #475569;
 }
 
-/* Kotak konfirmasi */
 .modal-hapus .del-confirm-box {
   border-radius: 12px;
   padding: 14px 16px;
@@ -9153,7 +8732,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   color: #c2410c;
 }
 
-/* Footer aksi */
 .modal-hapus .del-modal-footer {
   flex-direction: column;
   align-items: stretch;
@@ -9235,7 +8813,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   }
 }
 
-/* Modal Header */
 .modal-header {
   display: flex; align-items: center; justify-content: space-between;
   padding: 20px 24px 16px;
@@ -9259,7 +8836,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 }
 .modal-close:hover { background: #FEE2E2; border-color: #FECACA; color: var(--down); }
 
-/* Modal Tabs */
 .modal-tabs {
   display: flex; gap: 4px; padding: 12px 24px 0;
   border-bottom: 1px solid var(--border); flex-shrink: 0;
@@ -9280,13 +8856,11 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   background: #EFF6FF;
 }
 
-/* Modal Body */
 .modal-body {
   padding: 20px 24px;
   overflow-y: auto; flex: 1;
 }
 
-/* Form Layout */
 .form-section-label {
   font-size: 11px; font-weight: 700; text-transform: uppercase;
   letter-spacing: 0.9px; color: var(--text-muted);
@@ -9327,7 +8901,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 }
 .form-group textarea { resize: vertical; min-height: 60px; line-height: 1.5; }
 
-/* Input with prefix/suffix */
 .input-wrap {
   display: flex; align-items: center;
   border: 1.5px solid var(--border); border-radius: 9px;
@@ -9350,7 +8923,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 }
 .input-wrap input:focus { box-shadow: none !important; }
 
-/* Modal Footer */
 .modal-footer {
   display: flex; align-items: center; justify-content: space-between;
   padding: 14px 24px; border-top: 1px solid var(--border);
@@ -9390,9 +8962,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   .modal-footer-btns { justify-content: flex-end; }
 }
 
-/* ══════════════════════════════════════════
-   KPI DINAMIS — animasi update
-   ══════════════════════════════════════════ */
 .kpi-loading {
   color: var(--text-muted);
   font-size: 0.85em;
@@ -9414,11 +8983,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   color: var(--down);
 }
 
-/* ══════════════════════════════════════════
-   HOMEPAGE — Full-screen landing
-   ══════════════════════════════════════════ */
-
-/* Hide sidebar/header on homepage */
 .homepage-body-active .sidebar,
 .homepage-body-active .header {
   display: none;
@@ -9430,7 +8994,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   padding-top: 0;
 }
 
-/* Page body override for homepage */
 #page-home.active-page {
   padding: 0;
   margin: 0;
@@ -9438,7 +9001,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   overflow-x: hidden;
 }
 
-/* ── Hero ── */
 .homepage-hero {
   position: relative;
   min-height: 100vh;
@@ -9458,7 +9020,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   z-index: 0;
 }
 
-/* Semi-transparent blue overlay — adjust opacity to show/hide bg photo */
 .homepage-overlay {
   position: absolute;
   inset: 0;
@@ -9471,7 +9032,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   z-index: 1;
 }
 
-/* ── Navbar ── */
 .hp-nav {
   position: relative;
   z-index: 10;
@@ -9542,7 +9102,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   transform: translateY(-1px);
 }
 
-/* ── Hero Content ── */
 .homepage-content {
   position: relative;
   z-index: 10;
@@ -9648,7 +9207,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   transform: translateY(-2px);
 }
 
-/* ── Stats Bar ── */
 .hp-stats-bar {
   position: relative;
   z-index: 10;
@@ -9689,8 +9247,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   font-weight: 500;
 }
 
-/* ── Features Section ── */
-/* ── Purpose / Benefit Section ── */
 .hp-purpose-section {
   background: #f8faff;
   padding: 72px 48px 80px;
@@ -9788,7 +9344,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   line-height: 1.65;
 }
 
-/* ── Footer ── */
 .hp-footer {
   background: #152466;
   border-top: 1px solid rgba(255,255,255,0.08);
@@ -9819,7 +9374,6 @@ body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
   color: rgba(255,255,255,0.85);
 }
 
-/* ── Homepage: hide sidebar & header ── */
 body.on-homepage .sidebar,
 body.on-homepage .header {
   display: none !important;
@@ -9836,7 +9390,6 @@ body.on-homepage #page-home.page-body {
   min-height: 100vh;
 }
 
-/* ── Responsive ── */
 @media (max-width: 1024px) {
   .hp-purpose-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -9857,10 +9410,6 @@ body.on-homepage #page-home.page-body {
   .hp-purpose-card { flex-direction: column; }
 }
 
-/* ══════════════════════════════════════════
-   LOGIN MODAL
-   ══════════════════════════════════════════ */
-
 .login-modal-backdrop {
   display: none;
   position: fixed;
@@ -9880,7 +9429,6 @@ body.on-homepage #page-home.page-body {
   from { opacity: 0; } to { opacity: 1; }
 }
 
-/* Modal container — compact */
 .login-modal {
   background: #fff;
   border-radius: 20px;
@@ -9898,7 +9446,6 @@ body.on-homepage #page-home.page-body {
   to   { opacity: 1; transform: translateY(0) scale(1); }
 }
 
-/* Header — slimmer */
 .login-modal-header {
   background: linear-gradient(135deg, #1C3FAA 0%, #2563EB 100%);
   padding: 20px 22px 18px;
@@ -9924,7 +9471,6 @@ body.on-homepage #page-home.page-body {
   font-weight: 400; margin: 0;
 }
 
-/* Role Tabs — slimmer */
 .login-role-tabs {
   display: flex;
   border-bottom: 1px solid var(--border);
@@ -9950,7 +9496,6 @@ body.on-homepage #page-home.page-body {
 .login-role-tab.active { color: var(--accent2); border-bottom-color: var(--accent2); background: #fff; }
 .login-role-tab.active .tab-label-sub { color: var(--accent2); opacity: 0.75; }
 
-/* Panel Publik / Guest */
 .guest-info-box {
   display: flex; flex-direction: column; align-items: center; text-align: center;
   padding: 12px 8px 6px;
@@ -9966,7 +9511,6 @@ body.on-homepage #page-home.page-body {
   font-size: 12px; color: var(--text-secondary); margin: 0; line-height: 1.5;
 }
 
-/* Body — tighter spacing */
 .login-modal-body {
   padding: 18px 22px 16px;
   display: flex; flex-direction: column; gap: 12px;
@@ -9977,7 +9521,6 @@ body.on-homepage #page-home.page-body {
   color: var(--text-primary); letter-spacing: 0.2px;
 }
 
-/* Inputs — shorter height */
 .login-input-wrap {
   position: relative;
   display: flex; align-items: center;
@@ -10012,7 +9555,6 @@ body.on-homepage #page-home.page-body {
 }
 .login-toggle-pw:hover { color: var(--accent2); }
 
-/* Error */
 .login-error {
   display: flex; align-items: center; gap: 6px;
   background: #FEF2F2; border: 1px solid #FECACA;
@@ -10026,7 +9568,6 @@ body.on-homepage #page-home.page-body {
   40%,80%  { transform: translateX(5px); }
 }
 
-/* Submit button — slightly shorter */
 .login-submit-btn {
   width: 100%;
   padding: 11px;
@@ -10043,7 +9584,6 @@ body.on-homepage #page-home.page-body {
 .login-submit-btn:hover  { opacity: 0.92; transform: translateY(-1px); }
 .login-submit-btn:active { transform: translateY(0); }
 
-/* Footer */
 .login-modal-footer {
   padding: 8px 22px 16px;
   text-align: center;
@@ -10053,11 +9593,6 @@ body.on-homepage #page-home.page-body {
   font-size: 11.5px; color: var(--text-muted);
 }
 
-/* ══════════════════════════════════════════
-   ROLE SYSTEM — Header Additions
-   ══════════════════════════════════════════ */
-
-/* Role badge next to user role text */
 .user-role-wrap {
   display: flex; align-items: center; gap: 5px;
 }
@@ -10076,7 +9611,6 @@ body.role-user .user-role-badge {
   color: #047857;
 }
 
-/* Logout button */
 .logout-btn {
   display: flex; align-items: center; gap: 6px;
   padding: 7px 14px;
@@ -10098,32 +9632,24 @@ body.role-user .user-role-badge {
   color: #DC2626;
 }
 
-/* Hide Tambah Data for user role */
 body.role-user #btnTambahData {
   display: none !important;
 }
 
-/* Hide Notifikasi for user role */
 body.role-user #notifBtn {
   display: none !important;
 }
 
-/* Admin role badge color */
 body.role-admin .user-role-badge {
   background: rgba(37,99,235,0.12);
   color: #1C3FAA;
 }
-/* ══════════════════════════════════════════
-   SIDEBAR — Collapsible Nav Groups
-   ══════════════════════════════════════════ */
 
-/* Group wrapper */
 .nav-group {
   display: flex;
   flex-direction: column;
 }
 
-/* Group trigger button (the parent row) */
 .nav-group-trigger {
   display: flex;
   align-items: center;
@@ -10153,7 +9679,6 @@ body.role-admin .user-role-badge {
   gap: 10px;
 }
 
-/* Colored icon circle for group triggers */
 .nav-group-icon-wrap {
   width: 24px; height: 24px;
   border-radius: 7px;
@@ -10168,13 +9693,11 @@ body.role-admin .user-role-badge {
   background: rgba(255,255,255,0.20);
 }
 
-/* Open state: highlight trigger */
 .nav-group.open > .nav-group-trigger {
   color: rgba(255,255,255,0.95);
   background: rgba(255,255,255,0.06);
 }
 
-/* Chevron rotates when open */
 .nav-group-chevron {
   flex-shrink: 0;
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -10186,7 +9709,6 @@ body.role-admin .user-role-badge {
   color: rgba(255,255,255,0.75);
 }
 
-/* Children container — collapsed by default */
 .nav-group-children {
   overflow: hidden;
   max-height: 0;
@@ -10201,7 +9723,6 @@ body.role-admin .user-role-badge {
   opacity: 1;
 }
 
-/* Sub-item links inside groups */
 .nav-sub-item {
   display: flex;
   align-items: center;
@@ -10218,7 +9739,6 @@ body.role-admin .user-role-badge {
   position: relative;
 }
 
-/* Left accent line on sub-items */
 .nav-sub-item::before {
   content: '';
   position: absolute;
@@ -10252,7 +9772,6 @@ body.role-admin .user-role-badge {
   height: 65%;
 }
 
-/* ── Nav item icon wrap ── */
 .nav-item {
   display: flex;
   align-items: center;
@@ -10278,7 +9797,6 @@ body.role-admin .user-role-badge {
   font-weight: 600;
 }
 
-/* ── Colored icon variants for nav group icons ── */
 .nav-icon-blue {
   background: rgba(59,130,246,0.22) !important;
   color: #93C5FD;
@@ -10319,7 +9837,6 @@ body.role-admin .user-role-badge {
   background: rgba(167,139,250,0.32) !important;
 }
 
-/* ── Nav Sub-Group (nested inside nav-group-children) ── */
 .nav-sub-group {
   display: flex;
   flex-direction: column;
@@ -10381,7 +9898,6 @@ body.role-admin .user-role-badge {
   color: rgba(255,255,255,0.65);
 }
 
-/* Children of sub-group */
 .nav-sub-group-children {
   overflow: hidden;
   max-height: 0;
@@ -10394,10 +9910,6 @@ body.role-admin .user-role-badge {
   max-height: 200px;
   opacity: 1;
 }
-
-/* ══════════════════════════════════════════
-   LAPORAN KEUANGAN — Empty Page Styles
-   ══════════════════════════════════════════ */
 
 .laporan-empty-page {
   display: flex;
@@ -10449,9 +9961,6 @@ body.role-admin .user-role-badge {
   margin-top: 6px;
 }
 
-/* ══════════════════════════════════════════
-   COMING SOON — placeholder pages
-   ══════════════════════════════════════════ */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10483,11 +9992,6 @@ body.role-admin .user-role-badge {
   line-height: 1.6;
 }
 
-/* ══════════════════════════════════════════
-   MARGIN TRENDS PAGE — Specific styles
-   ══════════════════════════════════════════ */
-
-/* KPI footer row for margin KPIs */
 .kpi-footer-row {
   display: flex;
   align-items: center;
@@ -10501,18 +10005,15 @@ body.role-admin .user-role-badge {
   color: var(--text-muted);
 }
 
-/* Taller chart body for bottom row charts */
 .chart-body-tall iframe,
 .chart-body-table iframe {
   height: calc(380px + var(--mb-title-h));
 }
 
-/* Bottom row of margin page stretches full width */
 .mg-bottom-row {
   grid-template-columns: 1fr 1fr;
 }
 
-/* Margin chart iframe placeholder while Metabase loads */
 .mg-chart-frame {
   width: 100%;
   height: calc(300px + var(--mb-title-h));
@@ -10521,7 +10022,7 @@ body.role-admin .user-role-badge {
   display: block;
   background: #F9FAFB;
 }
-/* ── Balance Sheet Chart Frames ── */
+
 .bs-chart-frame {
   width: 100%;
   height: calc(300px + var(--mb-title-h));
@@ -10531,18 +10032,13 @@ body.role-admin .user-role-badge {
   background: #F9FAFB;
 }
 
-/* KPI trend badge with icon + text (Balance Sheet style) */
 .kpi-trend-badge {
   display: flex; align-items: center; gap: 3px;
   background: #DCFCE7; color: #16A34A;
   border-radius: 8px; padding: 5px 10px;
   font-size: 11px; font-weight: 600;
 }
-/* ══════════════════════════════════════════
-   KEY FINANCIAL INDICATORS PAGE
-   ══════════════════════════════════════════ */
 
-/* 6-column KPI grid for KFI */
 .kfi-kpi-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr);
@@ -10559,7 +10055,6 @@ body.role-admin .user-role-badge {
   .kfi-kpi-grid { grid-template-columns: 1fr 1fr; }
 }
 
-/* KFI KPI card — compact variant */
 .kfi-kpi-card {
   padding: 16px 14px 14px;
 }
@@ -10574,7 +10069,6 @@ body.role-admin .user-role-badge {
   font-size: 10.5px;
 }
 
-/* Arrow direction + color semantics */
 .kfi-arrow {
   border-radius: 8px;
   width: 28px; height: 28px;
@@ -10597,7 +10091,6 @@ body.role-admin .user-role-badge {
   color: #DC2626;
 }
 
-/* Section divider row */
 .kfi-section-divider {
   display: flex;
   align-items: center;
@@ -10621,18 +10114,15 @@ body.role-admin .user-role-badge {
   background: var(--border);
 }
 
-/* KFI chart row */
 .kfi-charts-row {
   grid-template-columns: 1fr 1fr;
 }
 
-/* KFI chart body — relative for placeholder overlay */
 .kfi-chart-body {
   position: relative;
   min-height: 320px;
 }
 
-/* KFI iframe — hidden behind placeholder until src is set */
 .kfi-chart-frame {
   width: 100%;
   height: calc(300px + var(--mb-title-h));
@@ -10644,7 +10134,6 @@ body.role-admin .user-role-badge {
   z-index: 1;
 }
 
-/* Placeholder shown when iframe src is blank */
 .kfi-embed-placeholder {
   position: absolute;
   inset: 0;
@@ -10687,9 +10176,6 @@ body.role-admin .user-role-badge {
   font-family: 'JetBrains Mono', 'Fira Code', monospace;
 }
 
-/* ══════════════════════════════════════════
-   INSIGHT NOTES — Floating Action Button
-   ══════════════════════════════════════════ */
 .insight-fab {
   position: fixed;
   bottom: 32px;
@@ -10734,9 +10220,6 @@ body.role-admin .user-role-badge {
   box-shadow: 0 2px 6px rgba(192,57,43,0.35);
 }
 
-/* ══════════════════════════════════════════
-   INSIGHT PANEL — Side Drawer
-   ══════════════════════════════════════════ */
 .insight-panel-backdrop {
   position: fixed;
   inset: 0;
@@ -10770,7 +10253,6 @@ body.role-admin .user-role-badge {
   transform: translateX(0);
 }
 
-/* Panel Header */
 .insight-panel-header {
   display: flex;
   align-items: center;
@@ -10825,7 +10307,6 @@ body.role-admin .user-role-badge {
   border-color: #FECACA;
 }
 
-/* Add Note Form */
 .insight-add-form {
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
@@ -10931,7 +10412,6 @@ body.role-admin .user-role-badge {
 }
 .insight-save-btn:active { transform: scale(0.97); }
 
-/* Notes List */
 .insight-notes-list {
   flex: 1;
   overflow-y: auto;
@@ -10941,7 +10421,6 @@ body.role-admin .user-role-badge {
   gap: 12px;
 }
 
-/* Note Card */
 .insight-note-card {
   border: 1.5px solid var(--border);
   border-radius: 12px;
@@ -10955,7 +10434,6 @@ body.role-admin .user-role-badge {
   transform: translateY(-1px);
 }
 
-/* Category colors */
 .insight-note-card[data-cat="info"]     { border-left: 4px solid #2563EB; }
 .insight-note-card[data-cat="warning"]  { border-left: 4px solid #CA8A04; }
 .insight-note-card[data-cat="positive"] { border-left: 4px solid #16A34A; }
@@ -11029,7 +10507,6 @@ body.role-admin .user-role-badge {
   border-radius: 10px;
 }
 
-/* Empty state */
 .insight-empty-state {
   flex: 1;
   display: flex;
@@ -11061,14 +10538,11 @@ body.role-admin .user-role-badge {
   color: var(--text-secondary);
 }
 
-/* Hide insight fab on homepage */
 body.on-homepage .insight-fab { display: none !important; }
 
-/* Hide for user role */
 body.role-user .insight-fab { display: none !important; }
 body.role-user .insight-panel { display: none !important; }
 
-/* ── Hapus semua border-top pada kartu KFI ── */
 .kfi-kpi-card,
 .kfi-kpi-card.kpi-card {
   border-top: none !important;
@@ -11080,18 +10554,15 @@ body.role-user .insight-panel { display: none !important; }
   box-shadow: 0 8px 24px rgba(37, 99, 235, 0.10);
 }
 
-/* ── Sembunyikan trend icon sudut kanan atas ── */
 .kfi-kpi-card .kfi-arrow {
   display: none !important;
 }
 
-/* ── top-row: icon saja, tanpa item di kanan ── */
 .kfi-kpi-card .kpi-top-row {
   justify-content: flex-start;
   margin-bottom: 12px;
 }
 
-/* ── Icon wrap: biru EFF6FF / 2563EB (sama seperti ROA) ── */
 .kfi-kpi-card .kpi-icon-wrap {
   background: #EFF6FF !important;
   border-radius: 12px;
@@ -11104,7 +10575,6 @@ body.role-user .insight-panel { display: none !important; }
   height: 20px;
 }
 
-/* ── Nilai angka: hitam, override semua color class & inline style ── */
 .kfi-kpi-card .kpi-value,
 .kfi-kpi-card .kpi-value.kpi-val-green,
 .kfi-kpi-card .kpi-value.kpi-val-blue,
@@ -11118,14 +10588,12 @@ body.role-user .insight-panel { display: none !important; }
   letter-spacing: -0.4px;
 }
 
-/* ── Unit abu ── */
 .kfi-kpi-card .kpi-unit {
   color: var(--text-secondary);
   font-size: 14px;
   font-weight: 600;
 }
 
-/* ── Label ── */
 .kfi-kpi-card .kpi-label {
   font-size: 11px;
   font-weight: 600;
@@ -11133,15 +10601,7 @@ body.role-user .insight-panel { display: none !important; }
   color: var(--text-secondary);
   margin-bottom: 4px;
 }
-/* ══════════════════════════════════════════
-   RESOURCE OVERVIEW — KPI Sparkcard Redesign
-   · Semua teks: hitam (--text-primary)
-   · Icon: latar putih + stroke warna aksen
-   · Accent bar tipis di atas card
-   · Badge & period tetap
-   ══════════════════════════════════════════ */
 
-/* ── Reset gradient background sparkcard Resource Overview ── */
 #page-operasional .kpi-sparkcard {
   background: var(--surface) !important;
   border-radius: var(--radius);
@@ -11161,17 +10621,14 @@ body.role-user .insight-panel { display: none !important; }
   box-shadow: 0 8px 28px rgba(0,0,0,0.10);
 }
 
-/* ── Accent bar: dihapus ── */
 #page-operasional .kpi-sparkcard::after { display: none !important; }
 
-/* ── spark-top: icon box ── */
 #page-operasional .kpi-sparkcard .spark-top {
   display: flex;
   justify-content: flex-start;
   margin-bottom: 14px;
 }
 
-/* ── Icon wrap: putih dengan border, stroke warna aksen ── */
 #page-operasional .kpi-sparkcard .kpi-icon-wrap {
   width: 44px !important;
   height: 44px !important;
@@ -11183,14 +10640,12 @@ body.role-user .insight-panel { display: none !important; }
   box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
-/* Override warna background icon — light tint per kategori */
 #page-operasional .kpi-sparkcard-red    .kpi-icon-wrap { background: #FEE2E2 !important; }
 #page-operasional .kpi-sparkcard-green  .kpi-icon-wrap { background: #DCFCE7 !important; }
 #page-operasional .kpi-sparkcard-blue   .kpi-icon-wrap { background: #EFF6FF !important; }
 #page-operasional .kpi-sparkcard-purple .kpi-icon-wrap { background: #F5F3FF !important; }
 #page-operasional .kpi-sparkcard-yellow .kpi-icon-wrap { background: #FEF9C3 !important; }
 
-/* Stroke icon mengikuti warna aksen */
 #page-operasional .kpi-sparkcard-red    .kpi-icon-wrap svg { stroke: #C0392B !important; }
 #page-operasional .kpi-sparkcard-green  .kpi-icon-wrap svg { stroke: #16A34A !important; }
 #page-operasional .kpi-sparkcard-blue   .kpi-icon-wrap svg { stroke: #2563EB !important; }
@@ -11202,7 +10657,6 @@ body.role-user .insight-panel { display: none !important; }
   height: 20px !important;
 }
 
-/* ── Label: hitam ── */
 #page-operasional .kpi-sparkcard .kpi-label {
   font-size: 11px !important;
   font-weight: 600 !important;
@@ -11213,7 +10667,6 @@ body.role-user .insight-panel { display: none !important; }
   margin-bottom: 6px !important;
 }
 
-/* ── Nilai angka: hitam, semua override color class ── */
 #page-operasional .kpi-sparkcard .kpi-value,
 #page-operasional .kpi-sparkcard .kpi-val-red,
 #page-operasional .kpi-sparkcard .kpi-val-green,
@@ -11228,14 +10681,12 @@ body.role-user .insight-panel { display: none !important; }
   margin-bottom: 10px !important;
 }
 
-/* ── Unit: abu-abu ── */
 #page-operasional .kpi-sparkcard .kpi-unit {
   color: var(--text-secondary) !important;
   font-size: 15px !important;
   font-weight: 600 !important;
 }
 
-/* ── Footer: badge + period ── */
 #page-operasional .kpi-sparkcard .kpi-footer {
   display: flex;
   align-items: center;
@@ -11248,7 +10699,6 @@ body.role-user .insight-panel { display: none !important; }
   color: var(--text-muted) !important;
 }
 
-/* Badge default (tanpa .up/.down) — abu netral */
 #page-operasional .kpi-sparkcard .kpi-badge:not(.up):not(.down) {
   background: #F3F4F6;
   color: #6B7280;
@@ -11257,9 +10707,7 @@ body.role-user .insight-panel { display: none !important; }
   padding: 3px 8px;
   border-radius: 20px;
 }
-/* ══════════════════════════════════════════
-   KELOLA BANNER — Button in Header
-   ══════════════════════════════════════════ */
+
 .btn-kelola-banner {
   display: flex;
   align-items: center;
@@ -11296,9 +10744,6 @@ body.role-user .insight-panel { display: none !important; }
   padding: 0 5px;
 }
 
-/* ══════════════════════════════════════════
-   BANNER DISPLAY AREA (shown to all users)
-   ══════════════════════════════════════════ */
 #bannerArea {
   width: 100%;
   display: flex;
@@ -11387,12 +10832,8 @@ body.role-user .insight-panel { display: none !important; }
 }
 .banner-dismiss-btn:hover { background: rgba(0,0,0,0.12); }
 
-/* hide banner area on homepage */
 body.on-homepage #bannerArea { display: none !important; }
 
-/* ══════════════════════════════════════════
-   BANNER MANAGEMENT PANEL
-   ══════════════════════════════════════════ */
 .banner-panel-backdrop {
   position: fixed;
   inset: 0;
@@ -11454,7 +10895,6 @@ body.on-homepage #bannerArea { display: none !important; }
 }
 .banner-panel-close:hover { background: #FEE2E2; color: var(--accent); border-color: #FECACA; }
 
-/* Banner Add Form */
 .banner-add-form {
   padding: 16px 20px;
   border-bottom: 1px solid var(--border);
@@ -11573,7 +11013,6 @@ body.on-homepage #bannerArea { display: none !important; }
 }
 .banner-save-btn:hover { background: #6D28D9; transform: translateY(-1px); }
 
-/* Banner list */
 .banner-list-header {
   padding: 12px 20px 8px;
   font-size: 11px;
@@ -11688,7 +11127,6 @@ body.on-homepage #bannerArea { display: none !important; }
   color: var(--text-muted);
 }
 
-/* Empty banner state */
 .banner-empty-state {
   flex: 1;
   display: flex;
@@ -11710,9 +11148,6 @@ body.on-homepage #bannerArea { display: none !important; }
 .banner-empty-state p { font-size: 14px; font-weight: 600; color: var(--text-primary); }
 .banner-empty-state span { font-size: 12.5px; color: var(--text-secondary); }
 
-/* ══════════════════════════════════════════
-   POST-SAVE ANNOUNCEMENT MODAL
-   ══════════════════════════════════════════ */
 .announce-modal-backdrop {
   position: fixed;
   inset: 0;
@@ -11806,14 +11241,11 @@ body.on-homepage #bannerArea { display: none !important; }
   transition: background 0.15s, transform 0.15s;
 }
 .announce-btn-create:hover { background: #6D28D9; transform: translateY(-1px); }
-/* ══════════════════════════════════════════
-   PAGE: LAPORAN KEUANGAN
-   ══════════════════════════════════════════ */
 
 .lk-hero {
   position: relative;
   background: linear-gradient(135deg, #2563EB 0%, #4F46E5 60%, #3730A3 100%);
- 
+
   padding: 56px 48px 0;
   overflow: hidden;
   min-height: 300px;
@@ -11893,7 +11325,6 @@ body.on-homepage #bannerArea { display: none !important; }
 }
 .lk-hero-wave svg { width: 100%; display: block; height: 80px; }
 
-/* Archive */
 .lk-archive-section {
   background: #f0f4ff;
   padding: 36px 48px 48px;
@@ -11912,7 +11343,6 @@ body.on-homepage #bannerArea { display: none !important; }
   margin: 0;
 }
 
-/* Accordion */
 .lk-accordion-list { display: flex; flex-direction: column; gap: 16px; }
 .lk-accordion {
   background: #fff;
@@ -12047,7 +11477,7 @@ body.on-homepage #bannerArea { display: none !important; }
   transition: background .2s, transform .15s;
 }
 .lk-report-dl-btn:hover { background: #1d4ed8; transform: translateY(-1px); }
-/* ── Laporan Keuangan: full-bleed layout ── */
+
 #page-laporan-keuangan.page-body {
   padding: 0;
   gap: 0;
@@ -12077,7 +11507,6 @@ a.lk-report-dl-btn {
   display: flex;
 }
 
-/* ── Butuh Bantuan Section ── */
 .lk-help-section {
   background: var(--bg, #f1f5f9);
   padding: 48px 32px 56px;
@@ -12205,7 +11634,7 @@ a.lk-report-dl-btn {
   .lk-help-title  { font-size: 22px; }
   .lk-help-inner  { padding: 36px 20px 32px; }
 }
-/* ══ PROFILE DROPDOWN ══ */
+
 .header-user { position: relative; }
 
 .user-avatar { cursor: pointer; }
@@ -12260,19 +11689,16 @@ a.lk-report-dl-btn {
   margin: 4px 0;
 }
 
-/* Sembunyikan admin items untuk non-admin */
 body:not(.role-admin) .admin-only-item { display: none !important; }
 .header-right {
   margin-left: auto;
 }
 
-    /* ── Sembunyikan tombol login di homepage ketika sudah login ── */
     body.role-admin #hpLoginBtn,
     body.role-user  #hpLoginBtn,
     body.role-admin #hpBtnPrimary,
     body.role-user  #hpBtnPrimary { display: none !important; }
 
-    /* ── Guest login button ── */
     .login-guest-divider {
       display: flex; align-items: center; gap: 8px;
       margin: 2px 0; color: #94a3b8; font-size: 11.5px;
@@ -12293,7 +11719,7 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
     .login-guest-btn:hover {
       background: #f8fafc; border-color: #94a3b8; color: #475569;
     }
-    /* ── KPI 5-column grid ── */
+
     .kpi-grid.kpi-5 {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -12306,21 +11732,17 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
       .kpi-grid.kpi-5 { grid-template-columns: repeat(2, 1fr); }
     }
 
-    /* ── KPI value color variants ── */
     .kpi-val-green  { color: #16A34A; }
     .kpi-val-blue   { color: #2563EB; }
     .kpi-val-purple { color: #9333EA; }
     .kpi-val-yellow { color: #CA8A04; }
 
-    /* ── Sparkcard accent variants ── */
     .kpi-sparkcard-purple { border-top: 3px solid #9333EA; }
     .kpi-sparkcard-yellow { border-top: 3px solid #CA8A04; }
 
-    /* ── 3-tab modal layout ── */
     .modal-tabs { flex-wrap: wrap; }
     .modal-tab  { flex: 1; justify-content: center; padding: 9px 12px; font-size: 12.5px; }
 
-    /* ── KFI chart iframe fix ── */
     .kfi-chart-body {
       position: relative;
       width: 100%;
@@ -12336,12 +11758,11 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
       display: block;
       z-index: 1;
     }
-    /* Hide any residual placeholder elements */
+
     .kfi-embed-placeholder {
       display: none !important;
     }
 
-    /* ── MODAL HAPUS DATA — Professional Styling ── */
     .danger-zone-header {
       display: flex;
       align-items: center;
@@ -12369,7 +11790,6 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
       font-size: 12px; color: #ef4444; margin-top: 2px;
     }
 
-    /* Delete selector columns */
     .del-columns {
       display: grid;
       grid-template-columns: 1.6fr 1fr 1fr;
@@ -12385,7 +11805,6 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
     }
     .del-col-label .req { color: #EF4444; font-size: 13px; }
 
-    /* Custom list boxes */
     .del-listbox {
       width: 100%;
       border: 1.5px solid var(--border);
@@ -12438,7 +11857,6 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
     }
     .del-item.selected .del-dot { background: #3b82f6; }
 
-    /* Year & Quarter pill grid */
     .del-pill-grid {
       display: flex; flex-direction: column; gap: 5px;
       padding: 8px;
@@ -12467,7 +11885,6 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
       background: #64748b; border-color: #64748b; color: white; border-style: solid;
     }
 
-    /* Summary bar */
     .del-summary {
       margin-top: 16px;
       background: #f8fafc;
@@ -12489,7 +11906,6 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
     }
     .del-summary-tag.danger { background: #fee2e2; color: #b91c1c; }
 
-    /* Delete button */
     .btn-hapus {
       margin-top: 14px;
       background: #EF4444;
@@ -12510,23 +11926,18 @@ body:not(.role-admin) .admin-only-item { display: none !important; }
   opacity: .55;
   box-shadow: none;
 }
- /* ══════════════════════════════════════════
-   Dashboard Analytics PT INDOCEMENT
-   style.css — Redesigned v2
-   ══════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ── CSS VARIABLES ── */
 :root {
   --sidebar-w: 260px;
   --header-h: 68px;
   --toggle-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   --bg: #F0F4FA;
   --surface: #FFFFFF;
-  --sidebar-bg: #1C3FAA;     /* deep royal blue — matches screenshot */
+  --sidebar-bg: #1C3FAA;
   --accent: #C0392B;
   --accent2: #2563EB;
   --accent3: #1A3A5C;
@@ -12552,11 +11963,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ══════════════════════════════════════════
-   ADMIN PAGE — Full-width Layout
-   ══════════════════════════════════════════ */
-
-/* Hide sidebar and header when on admin page */
 body.admin-mode .sidebar,
 body.admin-mode .header {
   display: none !important;
@@ -12576,7 +11982,6 @@ body.admin-mode .main {
   flex-direction: column;
 }
 
-/* ── Admin Header (Custom) ── */
 .admin-page-header {
   background: linear-gradient(135deg, #1C3FAA 0%, #2563EB 100%);
   padding: 48px 64px;
@@ -12589,7 +11994,6 @@ body.admin-mode .main {
   overflow: hidden;
 }
 
-/* Decorative background pattern */
 .admin-page-header::before {
   content: '';
   position: absolute;
@@ -12666,7 +12070,6 @@ body.admin-mode .main {
   flex-shrink: 0;
 }
 
-/* ── Admin Content Area ── */
 .admin-page-content {
   flex: 1;
   overflow-y: auto;
@@ -12693,12 +12096,12 @@ body.admin-mode .main {
   align-items: center;
   justify-content: center;
   gap: 10px;
-  padding: 16px 28px;        /* ← diubah */
+  padding: 16px 28px;
   border: 1.5px solid transparent;
   border-radius: 11px;
   background: transparent;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 15px;           /* ← diubah */
+  font-size: 15px;
   font-weight: 600;
   color: var(--text-secondary);
   cursor: pointer;
@@ -12745,7 +12148,6 @@ body.admin-mode .main {
   box-shadow: 0 2px 12px rgba(0,0,0,0.04);
 }
 
-/* ── Hapus Data Section ── */
 .admin-hapus-wrap {
   display: flex;
   flex-direction: column;
@@ -12797,7 +12199,6 @@ body.admin-mode .main {
   color: #b91c1c;
 }
 
-/* Delete form card */
 .del-pilihan-card {
   background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
   border: 1.5px solid var(--border);
@@ -12878,7 +12279,6 @@ body.admin-mode .main {
   margin-bottom: 16px;
 }
 
-/* ── Searchable Dropdown ── */
 .del-searchable-wrap {
   position: relative;
   width: 100%;
@@ -13061,7 +12461,6 @@ body.admin-mode .main {
   color: #3730a3;
 }
 
-/* Confirm box */
 .del-confirm-box {
   border-radius: 14px;
   padding: 16px 20px;
@@ -13086,7 +12485,6 @@ body.admin-mode .main {
   gap: 12px;
 }
 
-/* Pastikan atribut hidden tidak di-override oleh display: flex */
 .del-confirm-inner[hidden] {
   display: none !important;
 }
@@ -13148,7 +12546,6 @@ body.admin-mode .main {
   color: #c2410c;
 }
 
-/* Actions */
 .admin-hapus-actions {
   display: flex;
   align-items: center;
@@ -13214,7 +12611,6 @@ body.admin-mode .main {
   border-color: #fecaca;
 }
 
-/* ── Kelola Banner Section ── */
 .admin-banner-wrap {
   display: flex;
   flex-direction: column;
@@ -13257,7 +12653,6 @@ body.admin-mode .main {
   font-weight: 500;
 }
 
-/* Banner form */
 .banner-add-form {
   background: linear-gradient(135deg, #fafbff 0%, #f8fafc 100%);
   border: 1.5px solid var(--border);
@@ -13409,7 +12804,6 @@ body.admin-mode .main {
   transform: translateY(0);
 }
 
-/* Banner list header */
 .banner-list-header {
   padding: 14px 20px;
   font-size: 11px;
@@ -13421,7 +12815,6 @@ body.admin-mode .main {
   margin-top: 20px;
 }
 
-/* Banner list */
 .banner-list {
   display: flex;
   flex-direction: column;
@@ -13429,7 +12822,6 @@ body.admin-mode .main {
   padding: 16px 0;
 }
 
-/* Banner management card */
 .banner-mgmt-card {
   border: 1.5px solid var(--border);
   border-radius: 14px;
@@ -13579,7 +12971,6 @@ body.admin-mode .main {
   color: var(--text-muted);
 }
 
-/* Empty state */
 .banner-empty-state {
   display: flex;
   flex-direction: column;
@@ -13612,10 +13003,6 @@ body.admin-mode .main {
   font-size: 13px;
   color: var(--text-secondary);
 }
-
-/* ════════════════════════════════════════════
-   RESPONSIVE — Admin Page
-   ════════════════════════════════════════════ */
 
 @media (max-width: 1200px) {
   .admin-page-content {
@@ -13694,9 +13081,6 @@ body.admin-mode .main {
   }
 }
 
-/* ══════════════════════════════════════════
-   SIDEBAR — Standard Layout (tetap unchanged)
-   ══════════════════════════════════════════ */
 .sidebar {
   width: var(--sidebar-w);
   background: var(--sidebar-bg);
@@ -13827,9 +13211,6 @@ body.sidebar-hidden .main {
   width: 100%;
 }
 
-/* ══════════════════════════════════════════
-   MAIN + HEADER (Standard)
-   ══════════════════════════════════════════ */
 .main {
   margin-left: var(--sidebar-w);
   width: calc(100% - var(--sidebar-w));
@@ -14022,7 +13403,6 @@ body.sidebar-hidden .toggle-line-3 { transform: rotate(-45deg) translate(3.2px, 
 }
 .page-body.active-page { display: flex; }
 
-/* PAGE STATE — Admin Mode */
 body.admin-mode .page-body { display: none !important; }
 body.admin-mode .admin-page { display: flex !important; }
 
@@ -14034,7 +13414,6 @@ body.admin-mode .admin-page { display: flex !important; }
 }
 body:not(.sidebar-hidden) .sidebar-overlay { opacity: 0; pointer-events: none; }
 
-/* === ADMIN PAGE: Hide sidebar & header === */
 body.admin-active .sidebar,
 body.admin-active .sidebar-overlay {
   display: none !important;
@@ -14045,7 +13424,6 @@ body.admin-active .main {
   padding-top: 0 !important;
 }
 
-/* ── Profile page: hide sidebar & header ── */
 body.profile-active .sidebar,
 body.profile-active .sidebar-overlay {
   display: none !important;
@@ -14054,9 +13432,6 @@ body.profile-active .sidebar-overlay {
 body.profile-active .main {
   margin-left: 0 !important;
 }
-/* ══════════════════════════════════════════════
-   ADMIN PANEL — TAB: UPLOAD LAPORAN KEUANGAN
-   ══════════════════════════════════════════════ */
 
 .admin-upload-wrap {
   display: flex;
@@ -14064,7 +13439,6 @@ body.profile-active .main {
   gap: 20px;
 }
 
-/* Intro header */
 .admin-upload-intro {
   display: flex;
   align-items: center;
@@ -14090,7 +13464,6 @@ body.profile-active .main {
   font-size: 12px; color: #15803d; margin-top: 2px;
 }
 
-/* Form card */
 .upload-form-card {
   background: #fff;
   border: 1px solid #e5e7eb;
@@ -14126,7 +13499,6 @@ body.profile-active .main {
 }
 input[type="date"].upload-input { cursor: pointer; }
 
-/* Dropzone */
 .upload-dropzone {
   position: relative;
   border: 2px dashed #d1d5db;
@@ -14156,7 +13528,6 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .upload-dropzone-hint { font-size: 11px; color: #9ca3af; }
 
-/* File preview after selection */
 .upload-file-preview {
   display: flex; align-items: center; gap: 10px;
   padding: 12px 16px; width: 100%;
@@ -14174,7 +13545,6 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .upload-file-remove:hover { color: #ef4444; background: #fef2f2; }
 
-/* Footer */
 .upload-form-footer {
   display: flex; align-items: center; justify-content: space-between;
   margin-top: 16px; padding-top: 16px;
@@ -14199,7 +13569,6 @@ input[type="date"].upload-input { cursor: pointer; }
   display: inline-flex; align-items: center; gap: 6px;
 }
 
-/* Uploaded list header */
 .upload-list-header {
   display: flex; align-items: center; gap: 8px;
   font-size: 13px; font-weight: 700; color: #374151;
@@ -14213,7 +13582,6 @@ input[type="date"].upload-input { cursor: pointer; }
   min-width: 20px; text-align: center;
 }
 
-/* Uploaded report list */
 .upload-report-list {
   display: flex; flex-direction: column; gap: 10px;
 }
@@ -14264,7 +13632,6 @@ input[type="date"].upload-input { cursor: pointer; }
 .upload-report-btn:hover { background: #fef2f2; border-color: #fca5a5; color: #dc2626; }
 .upload-report-btn.view:hover { background: #eff6ff; border-color: #93c5fd; color: #2563eb; }
 
-/* Empty state */
 .upload-empty-state {
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
@@ -14282,17 +13649,12 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .upload-empty-state span { font-size: 12px; }
 
-/* ══════════════════════════════════════════════
-   PAGE: PROFIL ADMIN
-   ══════════════════════════════════════════════ */
-
 .profile-page-wrap {
   max-width: 1060px;
   margin: 0 auto;
   padding: 36px 32px 60px;
 }
 
-/* Header */
 .profile-page-header {
   display: flex;
   align-items: center;
@@ -14317,7 +13679,6 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .profile-page-subtitle { font-size: 13px; color: #6b7280; }
 
-/* Body layout */
 .profile-page-body {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -14325,7 +13686,6 @@ input[type="date"].upload-input { cursor: pointer; }
   align-items: start;
 }
 
-/* LEFT COL */
 .profile-left-col { display: flex; flex-direction: column; gap: 16px; }
 
 .profile-avatar-card {
@@ -14402,7 +13762,6 @@ input[type="date"].upload-input { cursor: pointer; }
   0%,100% { opacity: 1; } 50% { opacity: 0.4; }
 }
 
-/* RIGHT COL */
 .profile-right-col { display: flex; flex-direction: column; gap: 20px; }
 
 .profile-form-card {
@@ -14453,7 +13812,6 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .profile-eye-btn:hover { color: #374151; }
 
-/* Password strength */
 .profile-pass-strength { margin-top: 12px; }
 .profile-pass-strength-label { font-size: 12px; color: #6b7280; margin-bottom: 6px; font-weight: 600; }
 .profile-pass-strength-label span { font-weight: 700; }
@@ -14465,7 +13823,6 @@ input[type="date"].upload-input { cursor: pointer; }
   transition: width 0.3s, background 0.3s;
 }
 
-/* Footer */
 .profile-form-footer {
   display: flex; align-items: center; justify-content: space-between;
   margin-top: 20px; padding-top: 18px; border-top: 1px solid #f3f4f6;
@@ -14496,11 +13853,6 @@ input[type="date"].upload-input { cursor: pointer; }
   .profile-field-full { grid-column: 1; }
 }
 
-/* ══════════════════════════════════════════════
-   REGISTER MODAL
-   ══════════════════════════════════════════════ */
-
-/* Link daftar di login footer */
 .login-register-link {
   margin-top: 8px;
   font-size: 12px; color: #6b7280; text-align: center;
@@ -14512,7 +13864,6 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .login-register-link button:hover { color: #1d4ed8; }
 
-/* Step indicator */
 .reg-steps {
   display: flex; align-items: center; justify-content: center;
   padding: 14px 24px 14px;
@@ -14540,10 +13891,8 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .reg-step-line.active { background: #2563eb; }
 
-/* Two-col */
 .reg-two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
 
-/* Select */
 .req { color: #ef4444; }
 .reg-select-wrap { position: relative; }
 .reg-select {
@@ -14566,7 +13915,6 @@ input[type="date"].upload-input { cursor: pointer; }
   transform: translateY(-50%); pointer-events: none; color: #94a3b8;
 }
 
-/* Password strength */
 .reg-pass-strength { display: flex; align-items: center; gap: 8px; margin-top: 5px; }
 .reg-pass-strength-bar {
   flex: 1; height: 4px; background: #e5e7eb; border-radius: 10px; overflow: hidden;
@@ -14574,7 +13922,6 @@ input[type="date"].upload-input { cursor: pointer; }
 .reg-pass-strength-fill { height: 100%; border-radius: 10px; width: 0%; transition: width 0.3s, background 0.3s; }
 .reg-pass-strength-label { font-size: 10.5px; font-weight: 700; white-space: nowrap; min-width: 68px; }
 
-/* Button row */
 .reg-btn-row { display: flex; gap: 8px; margin-top: 2px; }
 .reg-back-btn {
   display: inline-flex; align-items: center; gap: 6px;
@@ -14587,7 +13934,6 @@ input[type="date"].upload-input { cursor: pointer; }
 .reg-back-btn:hover { background: #e5e7eb; }
 .reg-submit-btn { flex: 1; margin-top: 0 !important; }
 
-/* Success */
 .reg-success-wrap {
   display: flex; flex-direction: column;
   align-items: center; text-align: center; gap: 10px;
@@ -14606,11 +13952,7 @@ input[type="date"].upload-input { cursor: pointer; }
 }
 .reg-success-wrap h3 { font-size: 16px; font-weight: 800; color: #0f1f5c; margin: 0; }
 .reg-success-wrap p  { font-size: 12.5px; color: #6b7280; line-height: 1.6; margin: 0; }
-/* ══════════════════════════════════════════
-   HALAMAN PROFIL v2 — pf2-* classes
-   ══════════════════════════════════════════ */
 
-/* Wrapper */
 .pf2-wrap {
   max-width: 1080px;
   margin: 0 auto;
@@ -14619,7 +13961,6 @@ input[type="date"].upload-input { cursor: pointer; }
   box-sizing: border-box;
 }
 
-/* Page Header */
 .pf2-header {
   display: flex;
   align-items: center;
@@ -14657,7 +13998,6 @@ input[type="date"].upload-input { cursor: pointer; }
   margin-top: 2px;
 }
 
-/* Body layout: left + right */
 .pf2-body {
   display: grid;
   grid-template-columns: 280px 1fr;
@@ -14665,7 +14005,6 @@ input[type="date"].upload-input { cursor: pointer; }
   align-items: start;
 }
 
-/* ── LEFT: Identity Card ── */
 .pf2-left {}
 
 .pf2-id-card {
@@ -14781,18 +14120,16 @@ input[type="date"].upload-input { cursor: pointer; }
   flex-shrink: 0;
 }
 
-/* ── RIGHT: Tabbed Panel ── */
 .pf2-right {
   background: var(--surface);
   border-radius: 18px;
   box-shadow: var(--shadow);
   border: 1.5px solid var(--border);
   overflow: hidden;
-  min-width: 0; /* prevent grid blowout */
+  min-width: 0;
   width: 100%;
 }
 
-/* Tab bar */
 .pf2-tabs {
   display: flex;
   background: #f1f4f9;
@@ -14829,11 +14166,9 @@ input[type="date"].upload-input { cursor: pointer; }
   font-weight: 700;
 }
 
-/* Hide Jabatan/Posisi for user/visitor role */
 body.role-user #pf2-position-field,
 body.role-guest #pf2-position-field { display: none !important; }
 
-/* Panels */
 .pf2-panel { display: none; padding: 24px 28px 24px; width: 100%; box-sizing: border-box; margin-top: 4px; }
 .pf2-panel.active { display: block; }
 
@@ -14849,7 +14184,6 @@ body.role-guest #pf2-position-field { display: none !important; }
   margin-top: 4px;
 }
 
-/* Form grid — 2 equal columns */
 .pf2-form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -14895,7 +14229,6 @@ body.role-guest #pf2-position-field { display: none !important; }
   cursor: not-allowed;
 }
 
-/* Password input wrapper with eye button */
 .pf2-input-wrap {
   position: relative;
 }
@@ -14918,7 +14251,6 @@ body.role-guest #pf2-position-field { display: none !important; }
 }
 .pf2-eye-btn:hover { color: var(--text-primary); }
 
-/* Password strength */
 .profile-pass-strength { margin-top: 6px; }
 .profile-pass-strength-label { font-size: 12px; color: #6b7280; margin-bottom: 6px; font-weight: 600; }
 .profile-pass-strength-bar {
@@ -14934,7 +14266,6 @@ body.role-guest #pf2-position-field { display: none !important; }
   width: 0%;
 }
 
-/* Requirements box */
 .pf2-req-box {
   background: #f0f9ff;
   border: 1px solid #bae6fd;
@@ -14959,7 +14290,6 @@ body.role-guest #pf2-position-field { display: none !important; }
   color: #0c4a6e;
 }
 
-/* Panel footer */
 .pf2-footer {
   display: flex;
   align-items: center;
@@ -14988,7 +14318,6 @@ body.role-guest #pf2-position-field { display: none !important; }
 .pf2-save-btn:hover { opacity: 0.88; }
 .pf2-save-btn:active { transform: scale(0.98); }
 
-/* System info cards */
 .pf2-sys-cards {
   display: flex;
   flex-direction: column;
@@ -15064,7 +14393,6 @@ body.role-guest #pf2-position-field { display: none !important; }
   flex-shrink: 0;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .pf2-body { grid-template-columns: 1fr; }
   .pf2-wrap { padding: 20px 14px 48px; }
@@ -15073,49 +14401,38 @@ body.role-guest #pf2-position-field { display: none !important; }
   .pf2-tabs { overflow-x: auto; }
   .pf2-tab { font-size: 11px; padding: 12px 8px; white-space: nowrap; }
 }
-/* ══════════════════════════════════════════
-   MOBILE RESPONSIVE — Comprehensive Fix
-   Target: max-width 768px (smartphone)
-   ══════════════════════════════════════════ */
 
 @media (max-width: 768px) {
 
-  /* ── Root variables for mobile ── */
   :root {
     --header-h: 58px;
   }
 
-  /* ── Body: no flex-row on mobile ── */
   body {
     display: block;
   }
 
-  /* ── SIDEBAR: hidden by default on mobile, slide in as overlay ── */
   .sidebar {
     transform: translateX(calc(-1 * var(--sidebar-w)));
     box-shadow: none;
     z-index: 200;
   }
 
-  /* When sidebar is visible on mobile (no sidebar-hidden class = sidebar shown) */
   body:not(.sidebar-hidden) .sidebar {
     transform: translateX(0);
     box-shadow: 4px 0 32px rgba(14, 40, 120, 0.30);
   }
 
-  /* Overlay visible when sidebar is open on mobile */
   body:not(.sidebar-hidden) .sidebar-overlay {
     opacity: 1;
     pointer-events: auto;
   }
 
-  /* ── MAIN: full width on mobile ── */
   .main {
     margin-left: 0 !important;
     width: 100% !important;
   }
 
-  /* ── HEADER: compact on mobile ── */
   .header {
     padding: 0 12px;
     gap: 10px;
@@ -15160,7 +14477,6 @@ body.role-guest #pf2-position-field { display: none !important; }
     flex-shrink: 0;
   }
 
-  /* Hide user info text on mobile, show only avatar */
   .user-info { display: none !important; }
 
   .user-avatar {
@@ -15169,12 +14485,10 @@ body.role-guest #pf2-position-field { display: none !important; }
     font-size: 12px;
   }
 
-  /* ── PAGE BODY: tighter padding on mobile ── */
   .page-body {
     padding: 14px 12px 48px;
   }
 
-  /* ── KPI GRIDS ── */
   .kpi-3,
   .kpi-4 {
     grid-template-columns: 1fr 1fr;
@@ -15186,7 +14500,6 @@ body.role-guest #pf2-position-field { display: none !important; }
     gap: 10px;
   }
 
-  /* ── CHART ROWS ── */
   .charts-row,
   .fcf-bottom-row,
   .two-col-grid,
@@ -15195,7 +14508,6 @@ body.role-guest #pf2-position-field { display: none !important; }
     gap: 12px;
   }
 
-  /* ── CARDS: reduce padding ── */
   .kpi-card,
   .card,
   .chart-card,
@@ -15203,18 +14515,15 @@ body.role-guest #pf2-position-field { display: none !important; }
     padding: 14px 12px;
   }
 
-  /* ── KPI CARD text ── */
   .kpi-card .kpi-value {
     font-size: 20px;
   }
 
-  /* ── FORM ROWS: stack on mobile ── */
   .form-row {
     grid-template-columns: 1fr;
     gap: 10px;
   }
 
-  /* ── MODAL: full-screen style on mobile ── */
   .modal {
     width: calc(100vw - 16px);
     max-height: 95vh;
@@ -15248,21 +14557,18 @@ body.role-guest #pf2-position-field { display: none !important; }
     justify-content: center;
   }
 
-  /* ── LOGIN MODAL ── */
   .login-modal {
     width: calc(100vw - 24px);
     max-height: 95vh;
     overflow-y: auto;
   }
 
-  /* ── NOTIFICATION PANEL ── */
   .notif-panel {
     width: calc(100vw - 24px);
     right: 12px !important;
     left: 12px !important;
   }
 
-  /* ── INSIGHT PANEL ── */
   .insight-panel {
     width: 100vw;
     right: 0;
@@ -15272,7 +14578,6 @@ body.role-guest #pf2-position-field { display: none !important; }
     max-height: 80vh;
   }
 
-  /* ── LAPORAN KEUANGAN page ── */
   .lk-year-grid {
     grid-template-columns: 1fr;
     gap: 10px;
@@ -15294,12 +14599,10 @@ body.role-guest #pf2-position-field { display: none !important; }
     font-size: 28px;
   }
 
-  /* ── FINANCIAL OVERVIEW / DASHBOARD ── */
   .fo-cards-col {
     grid-template-columns: 1fr;
   }
 
-  /* ── TABLE: horizontal scroll ── */
   .table-body {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -15309,12 +14612,10 @@ body.role-guest #pf2-position-field { display: none !important; }
     min-width: 500px;
   }
 
-  /* ── HEADER BREADCRUMB: hide on mobile ── */
   .header-breadcrumb {
     display: none;
   }
 
-  /* ── FILTER BAR: wrap on mobile ── */
   .filter-bar {
     flex-wrap: wrap;
     gap: 8px;
@@ -15325,7 +14626,6 @@ body.role-guest #pf2-position-field { display: none !important; }
     min-width: 120px;
   }
 
-  /* ── QUARTER TABS: scroll horizontally ── */
   .quarter-tabs {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
@@ -15334,12 +14634,10 @@ body.role-guest #pf2-position-field { display: none !important; }
     padding-bottom: 4px;
   }
 
-  /* ── DATA CARDS in financial overview ── */
   .fo-card {
     padding: 14px 12px;
   }
 
-  /* ── PROFILE PAGE ── */
   .pf2-body {
     grid-template-columns: 1fr;
   }
@@ -15363,7 +14661,6 @@ body.role-guest #pf2-position-field { display: none !important; }
     white-space: nowrap;
   }
 
-  /* ── FAB (floating action button) ── */
   .insight-fab {
     bottom: 16px;
     right: 16px;
@@ -15371,32 +14668,27 @@ body.role-guest #pf2-position-field { display: none !important; }
     height: 48px;
   }
 
-  /* ── ANNOUNCEMENT BANNER ── */
   .announcement-banner {
     padding: 10px 12px;
     font-size: 12.5px;
   }
 
-  /* ── SIDEBAR TOGGLE: slightly bigger tap target on mobile ── */
   .sidebar-toggle-btn {
     width: 38px;
     height: 38px;
   }
 
-  /* ── Ikhtisar / summary cards ── */
   .summary-grid,
   .metrics-grid {
     grid-template-columns: 1fr 1fr;
     gap: 10px;
   }
 
-  /* ── Fix stacking context for page sections ── */
   .page-section {
     margin-bottom: 16px;
   }
 }
 
-/* ── Extra small phones (< 400px) ── */
 @media (max-width: 400px) {
   .kpi-3,
   .kpi-4,
@@ -15421,15 +14713,12 @@ body.role-guest #pf2-position-field { display: none !important; }
   }
 }
 
-/* ── Mobile sidebar: default shown = hidden on mobile (on load) ── */
 @media (max-width: 768px) {
-  /* On mobile, the "normal" state (no class) should HIDE the sidebar
-     We override: sidebar-hidden behavior is the DEFAULT */
+
   body.sidebar-hidden .sidebar {
     transform: translateX(calc(-1 * var(--sidebar-w)));
   }
 
-  /* When sidebar is explicitly opened on mobile via JS toggle */
   body.mobile-sidebar-open .sidebar {
     transform: translateX(0) !important;
     box-shadow: 4px 0 32px rgba(14, 40, 120, 0.30);
@@ -15440,20 +14729,9 @@ body.role-guest #pf2-position-field { display: none !important; }
     pointer-events: auto !important;
   }
 }
-/* ══════════════════════════════════════════
-   MOBILE UI FIXES — v2 Patch
-   Target issues:
-   1. Filter Quarter buttons wrapping/overflow
-   2. Laporan Keuangan PDF items clipped
-   3. Informasi Sistem card text truncated
-   ══════════════════════════════════════════ */
 
-/* ─────────────────────────────────────────
-   FIX 1: Filter Bar & Quarter Buttons Mobile
-   ───────────────────────────────────────── */
 @media (max-width: 768px) {
 
-  /* Filter bar: stack vertically on mobile */
   .filter-bar {
     flex-direction: column;
     align-items: stretch;
@@ -15461,7 +14739,6 @@ body.role-guest #pf2-position-field { display: none !important; }
     padding: 14px 16px;
   }
 
-  /* Top row: label + year select side by side */
   .filter-bar > .filter-label,
   .filter-bar > .filter-group-inline {
     width: 100%;
@@ -15480,12 +14757,10 @@ body.role-guest #pf2-position-field { display: none !important; }
     font-size: 13px;
   }
 
-  /* Quarter row: label + buttons in a full row */
   .filter-bar .filter-divider {
-    display: none; /* hide vertical divider on mobile */
+    display: none;
   }
 
-  /* Quarter buttons container: full width, scrollable */
   .quarter-btns {
     display: flex;
     width: 100%;
@@ -15499,7 +14774,6 @@ body.role-guest #pf2-position-field { display: none !important; }
   }
   .quarter-btns::-webkit-scrollbar { display: none; }
 
-  /* Each quarter button: equal flexible size */
   .q-btn {
     flex: 1;
     min-width: 0;
@@ -15509,7 +14783,6 @@ body.role-guest #pf2-position-field { display: none !important; }
     white-space: nowrap;
   }
 
-  /* "Showing:" label: right-aligned below buttons */
   .filter-showing {
     margin-left: 0;
     text-align: right;
@@ -15517,7 +14790,6 @@ body.role-guest #pf2-position-field { display: none !important; }
     width: 100%;
   }
 
-  /* Quarter row wrapper (label + buttons together) */
   .filter-quarter-row {
     display: flex;
     flex-direction: column;
@@ -15535,12 +14807,8 @@ body.role-guest #pf2-position-field { display: none !important; }
   }
 }
 
-/* ─────────────────────────────────────────
-   FIX 2: Laporan Keuangan PDF Items Mobile
-   ───────────────────────────────────────── */
 @media (max-width: 768px) {
 
-  /* Accordion header: tighter padding, prevent overflow */
   .lk-accordion-head {
     padding: 16px 14px;
     gap: 10px;
@@ -15573,7 +14841,6 @@ body.role-guest #pf2-position-field { display: none !important; }
     align-items: center;
   }
 
- 
   .lk-report-doc-icon {
     width: 34px;
     height: 34px;
@@ -15625,7 +14892,6 @@ body.role-guest #pf2-position-field { display: none !important; }
   }
 }
 
-/* FIX 3: Informasi Sistem Cards Mobile */
 @media (max-width: 768px) {
 
   .pf2-sys-cards {
@@ -15699,8 +14965,6 @@ body.role-guest #pf2-position-field { display: none !important; }
   }
 }
 
-/* FIX 4: frame untuk mobile kecil*/
-
 @media (max-width: 400px) {
 
   .q-btn {
@@ -15728,10 +14992,7 @@ body.role-guest #pf2-position-field { display: none !important; }
   height: calc(340px + var(--mb-title-h) + 40px) !important;
   margin-top: calc(-1 * (var(--mb-title-h) + 40px)) !important;
 }
-/* ══════════════════════════════════════════
-   NOTIFIKASI APPROVAL — tombol Setujui / Tolak
-   (khusus notifikasi tipe 'approval' untuk role Manajemen)
-   ══════════════════════════════════════════ */
+
 .notif-item.notif-approval { cursor: default; }
 .notif-approval-actions {
   display: flex;
@@ -15784,7 +15045,6 @@ body.role-guest #pf2-position-field { display: none !important; }
   transform: scale(0.97);
 }
 
-/* Badge kecil "Menunggu Persetujuan" di item notifikasi approval */
 .notif-approval-tag {
   display: inline-flex;
   align-items: center;
