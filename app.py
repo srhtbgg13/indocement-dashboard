@@ -9,9 +9,6 @@ import functools
 import os
 from dotenv import load_dotenv
 
-# Baca file .env (kalau ada) → isi os.environ. Di file .env inilah password
-# & secret asli disimpan, dan file .env TIDAK ikut di-commit ke git (lihat
-# .gitignore). Yang boleh di-commit cuma .env.example (isinya placeholder).
 load_dotenv()
 
 def env(key, default=None, required=False):
@@ -34,8 +31,6 @@ def serve_index():
 JWT_SECRET      = env("JWT_SECRET", required=True)
 JWT_EXPIRY_DAYS = 7
 
-# Origin frontend yang diizinkan akses API ini, dipisah koma di .env, mis:
-# CORS_ORIGINS=http://localhost:5500,https://username.github.io
 _cors_origins = env(
     "CORS_ORIGINS",
     "http://127.0.0.1:5500,http://localhost:5500,"
@@ -56,7 +51,6 @@ MYSQL_CONFIG = {
     "charset":  "utf8mb4",
 }
 
-# menyesuaikan nama falsk dengan di MySQl
 COL = {
     "tahun":               "year",
     "kuartal":             "quarter",
@@ -69,7 +63,7 @@ COL = {
     "cost_of_goods_sold":  "cost_of_goods_sold",
     "gross_profit":        "gross_profit",
     "net_income":          "net_income",
-    "laba_bersih":         "net_income",       
+    "laba_bersih":         "net_income",
     "operating_expenses":  "operating_expenses",
     "operating_income":    "operating_income",
     "tax_expense":         "tax_expense",
@@ -83,7 +77,6 @@ COL = {
     "total_liabilities":   "total_liabilities",
 }
 
-# Field untuk hapus data
 DELETE_FIELD_MAP = {
     "ocf":                 "CFO",
     "cfi":                 "CFI",
@@ -228,7 +221,6 @@ def tambah_audit_log(conn, aksi, tabel_target, record_id=None,
     username      : username untuk referensi cepat tanpa JOIN
     """
     import json as _json
-    # Ambil user dari request context bila tidak dikirim eksplisit
     if user_id is None:
         try:
             user_id  = request.current_user.get("user_id")
@@ -338,7 +330,6 @@ def agg_last(conn, col_mysql, where_clause, params):
     return float(v) if v is not None else 0.0
 
 
-# Kolom akun NERACA (posisi/stock) - gunakan agg_last, BUKAN agg_sum/agg_avg
 BALANCE_SHEET_COLS = {
     "ending_cash_balance",
     "total_assets",
@@ -477,7 +468,6 @@ def eksekusi_pending_delete_field(conn, payload):
     return {"affected": affected, "baris_lama_list": baris_lama_list, "col_mysql": col_mysql}
 
 
-# ENDPOINT UNTUK REGIST
 @app.route("/api/register", methods=["POST"])
 def register():
     data = request.get_json()
@@ -541,7 +531,6 @@ def register():
         conn.close()
 
 
-# ENDPOINT LOGIN
 @app.route("/api/login", methods=["POST"])
 def login():
     data = request.get_json()
@@ -568,14 +557,12 @@ def login():
         if not bcrypt.checkpw(password.encode("utf-8"), user["password_hash"].encode("utf-8")):
             return jsonify({"error": "Username atau password salah"}), 401
 
-        # Tampilin Waktu terakhir login
         now = datetime.utcnow()
         with conn.cursor() as cur:
             cur.execute(
                 "UPDATE users SET last_login = %s WHERE id = %s",
                 (now, user["id"])
             )
-        # Catat aktivitas login ke audit log
         tambah_audit_log(conn, aksi="LOGIN", tabel_target="users",
                          record_id=user["id"],
                          data_baru={
@@ -607,7 +594,6 @@ def login():
         conn.close()
 
 
-# ENDPOINT UNTUK LOG OUT
 @app.route("/api/logout", methods=["POST"])
 @require_auth
 def logout():
@@ -630,7 +616,6 @@ def logout():
         conn.close()
 
 
-# ENDPOINT UNTUK CEK TOKEN MASIH VALID
 @app.route("/api/auth/me", methods=["GET"])
 @require_auth
 def auth_me():
@@ -662,7 +647,6 @@ def auth_me():
         conn.close()
 
 
-# ENDPOINT UNTUK GANTI PASSWORD
 @app.route("/api/auth/change-password", methods=["POST"])
 @require_auth
 def change_password():
@@ -698,7 +682,6 @@ def change_password():
         conn.close()
 
 
-# ENDPOINT UNTUK TAMBAH DATA KEUANGAN
 @app.route("/api/keuangan", methods=["POST"])
 @require_admin
 def tambah_keuangan():
@@ -727,8 +710,6 @@ def tambah_keuangan():
 
     conn = get_db()
     try:
-        # Cek apakah data periode ini sudah ada (untuk menentukan label tambah/update saja,
-        # eksekusi INSERT/UPDATE sebenarnya baru terjadi setelah di-approve Manajemen)
         with conn.cursor() as cur:
             cur.execute(
                 "SELECT COUNT(*) AS n FROM indocement WHERE `year`=%s AND `quarter`=%s",
@@ -736,7 +717,6 @@ def tambah_keuangan():
             )
             exists = cur.fetchone()["n"] > 0
 
-        # Map payload API ke nama kolom MySQL
         payload_map = {
             "revenue":             data.get("revenue"),
             "cost_of_goods_sold":  data.get("cost_of_goods_sold"),
@@ -760,7 +740,6 @@ def tambah_keuangan():
             "accounts_payable":    data.get("accounts_payable"),
         }
 
-        # Minimal satu nilai field
         if not any(v is not None for v in payload_map.values()):
             return jsonify({
                 "error": "Tidak ada nilai data",
@@ -779,7 +758,6 @@ def tambah_keuangan():
             diajukan_oleh_nama=current.get("username"),
         )
 
-        # Notifikasi ke SEMUA Manajemen supaya bisa approve/tolak
         tambah_notifikasi(
             conn,
             f"Admin {current.get('username')} mengajukan {aksi_label} data keuangan {kuartal} {tahun}. Perlu persetujuan Anda.",
@@ -787,7 +765,6 @@ def tambah_keuangan():
             target_role="manajemen",
             pending_id=pending_id,
         )
-        # Notifikasi ke admin sendiri bahwa pengajuannya sedang menunggu
         tambah_notifikasi(
             conn,
             f"Pengajuan Anda untuk {aksi_label} data keuangan {kuartal} {tahun} sedang menunggu persetujuan Manajemen.",
@@ -806,7 +783,6 @@ def tambah_keuangan():
         conn.close()
 
 
-# ENDPOINT UNTUK HAPUS DATA
 @app.route("/api/data/field", methods=["DELETE"])
 @require_admin
 def hapus_field():
@@ -854,8 +830,6 @@ def hapus_field():
 
     conn = get_db()
     try:
-        # Cek dulu apakah ada baris yang cocok, supaya admin tidak mengajukan
-        # penghapusan untuk data yang memang tidak ada
         with conn.cursor() as cur:
             cur.execute(
                 f"SELECT COUNT(*) AS n FROM indocement {where}",
@@ -917,7 +891,6 @@ def hapus_field():
         conn.close()
 
 
-# ENDPOINT DAFTAR PENGAJUAN PERUBAHAN (PENDING APPROVAL)
 @app.route("/api/pending", methods=["GET"])
 @require_auth
 def get_pending():
@@ -976,7 +949,6 @@ def get_pending():
         conn.close()
 
 
-# ENDPOINT APPROVE PENGAJUAN (KHUSUS MANAJEMEN)
 @app.route("/api/pending/<int:pending_id>/approve", methods=["POST"])
 @require_manajemen
 def approve_pending(pending_id):
@@ -1033,7 +1005,6 @@ def approve_pending(pending_id):
                 (current.get("user_id"), current.get("username"), pending_id)
             )
 
-        # Notifikasi ke Admin yang mengajukan
         tambah_notifikasi(
             conn, pesan_admin, tipe="success",
             user_id=row["diajukan_oleh"], pending_id=pending_id,
@@ -1048,7 +1019,6 @@ def approve_pending(pending_id):
         conn.close()
 
 
-# ENDPOINT TOLAK PENGAJUAN (KHUSUS MANAJEMEN)
 @app.route("/api/pending/<int:pending_id>/reject", methods=["POST"])
 @require_manajemen
 def reject_pending(pending_id):
@@ -1094,7 +1064,6 @@ def reject_pending(pending_id):
         conn.close()
 
 
-# ENDPOINT UNTUK AMBIL AUDIT LOG
 @app.route("/api/audit-log", methods=["GET"])
 @require_admin
 def get_audit_log():
@@ -1182,7 +1151,6 @@ def ringkasan_audit_log():
     return jsonify({"per_aksi": per_aksi, "aktivitas_terbaru": terbaru})
 
 
-# ENDPOINT UNTUK NOTIF
 @app.route("/api/notifikasi", methods=["GET"])
 @require_auth
 def get_notifikasi():
@@ -1199,7 +1167,6 @@ def get_notifikasi():
     try:
         with conn.cursor() as cur:
             if role == "admin":
-                # Admin: notif global (user_id IS NULL) + milik sendiri + broadcast utk role admin
                 cur.execute(
                     """SELECT * FROM notifikasi
                        WHERE user_id IS NULL OR user_id = %s OR target_role = 'admin'
@@ -1214,8 +1181,6 @@ def get_notifikasi():
                     (uid,)
                 )
             else:
-                # Manajemen & user biasa: notif personal + broadcast utk role-nya
-                # (mis. pengajuan approval baru untuk semua Manajemen)
                 cur.execute(
                     """SELECT * FROM notifikasi
                        WHERE user_id = %s OR target_role = %s
@@ -1230,7 +1195,6 @@ def get_notifikasi():
                 )
             belum_dibaca = cur.fetchone()["n"]
 
-        # Format datetime
         for r in rows:
             if r.get("dibuat_pada"):
                 r["dibuat_pada"] = r["dibuat_pada"].strftime("%d %b %Y, %H:%M")
@@ -1260,7 +1224,6 @@ def tandai_sudah_dibaca():
                     (uid,)
                 )
             else:
-                # Manajemen & user biasa: notif personal + broadcast utk role-nya
                 cur.execute(
                     "UPDATE notifikasi SET sudah_dibaca = 1 WHERE user_id = %s OR target_role = %s",
                     (uid, role)
@@ -1319,7 +1282,6 @@ def hapus_semua_notifikasi():
         conn.close()
 
 
-# ENDPOINT DAFTAR TAHUN
 @app.route("/api/tahun-tersedia", methods=["GET"])
 def tahun_tersedia():
     conn = get_db()
@@ -1332,7 +1294,6 @@ def tahun_tersedia():
         conn.close()
 
 
-# ENDPOINT PAGE I
 @app.route("/api/kpi/keuangan", methods=["GET"])
 def kpi_keuangan():
     tahun   = request.args.get("tahun",   type=int)
@@ -1351,8 +1312,6 @@ def kpi_keuangan():
                       "total_assets","total_equity","total_liabilities"]
 
         def agg_for(col, where_clause, p):
-            # Akun neraca (saldo/posisi) -> ambil nilai kuartal terakhir,
-            # bukan dijumlahkan lintas kuartal.
             if col in BALANCE_SHEET_COLS:
                 return agg_last(conn, col, where_clause, p)
             return agg_sum(conn, col, where_clause, p)
@@ -1383,7 +1342,6 @@ def kpi_keuangan():
         return {"nilai": fmt(cv), "nilai_raw": cv, "pct": pct(cv, pv),
                 "naik": (cv >= pv) if pv != 0 else None}
 
-    # OPERASI FCF 
     fcf_cur   = float(cur_vals["CFO"])  + float(cur_vals["CFI"])
     fcf_prev  = float(prev_vals["CFO"]) + float(prev_vals["CFI"])
     capex_cur  = abs(float(cur_vals["CFI"]))
@@ -1404,7 +1362,6 @@ def kpi_keuangan():
     })
 
 
-# ENPOINT PAGE II
 @app.route("/api/kpi/operasional", methods=["GET"])
 def kpi_operasional():
     tahun   = request.args.get("tahun",   type=int)
@@ -1422,7 +1379,6 @@ def kpi_operasional():
         cfi_prev = agg_sum(conn, "CFI", wp, params_p)
         cff_prev = agg_sum(conn, "CFF", wp, params_p)
 
-# RUMUS KPI INFLOW n OUTFLOW
         inflow_cur   = agg_sum(conn, "inflow",  w,  params)
         outflow_cur  = agg_sum(conn, "outflow", w,  params)
         inflow_prev  = agg_sum(conn, "inflow",  wp, params_p)
@@ -1459,7 +1415,6 @@ def kpi_operasional():
     })
 
 
-# ENDPOINT PAGE III
 @app.route("/api/kpi/cashflow", methods=["GET"])
 def kpi_cashflow():
     tahun   = request.args.get("tahun",   type=int)
@@ -1506,7 +1461,6 @@ def kpi_cashflow():
     })
 
 
-# ENDPOINT PAGE IV
 @app.route("/api/kpi/margin", methods=["GET"])
 def kpi_margin():
     tahun   = request.args.get("tahun",   type=int)
@@ -1565,7 +1519,6 @@ def kpi_margin():
     })
 
 
-# ENDPOINT PAGE V
 @app.route("/api/kpi/balance", methods=["GET"])
 def kpi_balance():
     tahun   = request.args.get("tahun",   type=int)
@@ -1673,7 +1626,7 @@ def tabel_balance():
         cash   = safe_float(r["ending_cash_balance"])
         ar     = safe_float(r["accounts_receivable"])
         inv    = safe_float(r["inventory"])
-        other  = assets - cash - ar - inv  # residual, boleh 0 kalau breakdown penuh
+        other  = assets - cash - ar - inv
 
         result.append({
             "year":                   r["year"],
@@ -1697,7 +1650,6 @@ def tabel_balance():
     return jsonify({"ada_data": len(result) > 0, "rows": result, "total": len(result)})
 
 
-# ENPOINT PAGE VI
 @app.route("/api/kpi/kfi", methods=["GET"])
 def kpi_kfi():
     tahun   = request.args.get("tahun",   type=int)
@@ -1715,7 +1667,6 @@ def kpi_kfi():
 
         w,    params   = build_where(tahun_query, kuartal, prev=False)
         wp,   params_p = build_where(tahun_query, kuartal, prev=True)
-        # YTD: untuk ROA/ROE/ROCE numerator pakai akumulasi Q1 s/d kuartal dipilih
         wytd,  params_ytd   = build_where_ytd(tahun_query, kuartal, prev=False)
         wytdp, params_ytdp  = build_where_ytd(tahun_query, kuartal, prev=True)
 
@@ -1725,7 +1676,6 @@ def kpi_kfi():
         def s_p(col):   return agg_sum(conn, col, wp, params_p)
         def bal(col):   return agg_last(conn, col, w,  params)
         def bal_p(col): return agg_last(conn, col, wp, params_p)
-        # YTD sum — untuk numerator yang harus kumulatif (NI, OI)
         def sytd(col):   return agg_sum(conn, col, wytd,  params_ytd)
         def sytd_p(col): return agg_sum(conn, col, wytdp, params_ytdp)
 
@@ -1737,13 +1687,9 @@ def kpi_kfi():
         ca_cur     = bal("current_assets");        ca_prev     = bal_p("current_assets")
         cl_cur     = bal("current_liabilities");   cl_prev     = bal_p("current_liabilities")
         assets_cur = bal("total_assets");          assets_prev = bal_p("total_assets")
-        # Gunakan YTD sum agar ROA/ROE/ROCE dihitung dari akumulasi Q1 s/d
-        # kuartal yang dipilih, bukan satu kuartal isolasi.
-        # Contoh: filter Q3 → ni_cur = NI Q1+Q2+Q3, bukan NI Q3 saja.
         oi_cur     = sytd("operating_income");     oi_prev     = sytd_p("operating_income")
         ni_cur     = sytd("net_income");           ni_prev     = sytd_p("net_income")
 
-        # Jumlah kuartal YTD untuk fungsi annualize()
         n_quarters_cur  = count_rows(conn, wytd,  params_ytd)
         n_quarters_prev = count_rows(conn, wytdp, params_ytdp)
 
@@ -1924,10 +1870,6 @@ def tabel_kfi():
     return jsonify({"ada_data": len(result) > 0, "rows": result})
 
 
-
-
-
-
 @app.route("/api/tabel/keuangan", methods=["GET"])
 def tabel_keuangan():
     tahun   = request.args.get("tahun",   type=int)
@@ -2007,7 +1949,6 @@ def tabel_keuangan():
     return jsonify({"ada_data": len(result) > 0, "rows": result, "total": len(result)})
 
 
-# ENDPOINT PAGE VI (Margin Trends — Gross Margin & EBITDA Margin Performance)
 @app.route("/api/tabel/margin", methods=["GET"])
 def tabel_margin():
     """
@@ -2082,7 +2023,7 @@ def tabel_margin():
             "revenue":          rev,
             "gross_profit":     gp,
             "ebitda":           ebitda,
-            "gross_margin":     gm,   # None kalau revenue 0/kosong — frontend anggap "tidak ada data"
+            "gross_margin":     gm,
             "ebitda_margin":    em,
             "operating_margin": om,
             "net_margin":       nm,
@@ -2094,7 +2035,6 @@ def tabel_margin():
 if __name__ == "__main__":
     conn = get_db()
     with conn.cursor() as cur:
-        # Tabel notifikasi
         cur.execute("""
             CREATE TABLE IF NOT EXISTS notifikasi (
                 id           INT AUTO_INCREMENT PRIMARY KEY,
@@ -2105,7 +2045,6 @@ if __name__ == "__main__":
                 dibuat_pada  DATETIME    DEFAULT CURRENT_TIMESTAMP
             )
         """)
-        # Tabel perubahan_pending — antrean pengajuan Admin yang menunggu approval Manajemen
         cur.execute("""
             CREATE TABLE IF NOT EXISTS perubahan_pending (
                 id                 INT AUTO_INCREMENT PRIMARY KEY,
@@ -2122,7 +2061,6 @@ if __name__ == "__main__":
                 INDEX idx_status (status)
             )
         """)
-        # Tabel users
         cur.execute("""
             CREATE TABLE IF NOT EXISTS users (
                 id            INT AUTO_INCREMENT PRIMARY KEY,
@@ -2136,7 +2074,6 @@ if __name__ == "__main__":
                 dibuat_pada   DATETIME DEFAULT CURRENT_TIMESTAMP
             )
         """)
-        # Tabel audit_log
         cur.execute("""
             CREATE TABLE IF NOT EXISTS audit_log (
                 id           INT AUTO_INCREMENT PRIMARY KEY,
@@ -2161,7 +2098,7 @@ if __name__ == "__main__":
             """)
         conn.commit()
     except Exception:
-        pass  
+        pass
     try:
         with conn.cursor() as cur:
             cur.execute("""
@@ -2169,7 +2106,7 @@ if __name__ == "__main__":
             """)
         conn.commit()
     except Exception:
-        pass  
+        pass
     try:
         with conn.cursor() as cur:
             cur.execute("""
@@ -2186,7 +2123,6 @@ if __name__ == "__main__":
         conn.commit()
     except Exception:
         pass
-    # Migrasi ENUM role: tambah 'manajemen' jika belum ada
     try:
         with conn.cursor() as cur:
             cur.execute("""
