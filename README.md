@@ -146,4 +146,4 @@ Data berasal dari laporan keuangan publik PT Indocement Tunggal Prakarsa Tbk yan
 ## Penulis
 **Sarah Lamtua Tobing**
 
-[GitHub](https://github.com/srhtbgg13) · [Email](sarahtbg13@gmail.com)
+[GitHub](https://github.com/srhtbgg13) · Email: [sarahtbg13@gmail.com](mailto:sarahtbg13@gmail.com)
