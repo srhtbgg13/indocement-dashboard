@@ -6,7 +6,7 @@ Proyek ini dibuat sebagai bagian dari tugas akhir saya di bidang Sistem Informas
 
 **[🔗 Lihat demo dashboard](https://srhtbgg13.github.io/indocement-dashboard/)** · Pilih tab **Guest** untuk masuk.
 
-![Tampilan dashboard](dashboard\dashboard.jpg)
+![Tampilan dashboard](dashboard/dashboard.jpg)
 
 > **Catatan:** Proyek ini menggunakan laporan keuangan yang tersedia untuk publik dan dibuat untuk keperluan akademik. Proyek ini tidak berafiliasi dengan PT Indocement.
 
